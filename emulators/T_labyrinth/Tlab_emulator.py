@@ -57,7 +57,7 @@ class TLabyrinthEmulator(BaseEnvironment):
     def set_length(self, length_interval):
         #print('it works', length_interval)
         self.length_int = length_interval
-        return self.resultinig_length
+        return self.resulting_length
 
     def get_legal_actions(self):
         #self.legal_actions = T_lab_actions().shape
