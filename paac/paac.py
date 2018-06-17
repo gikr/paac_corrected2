@@ -88,7 +88,7 @@ class PAACLearner(object):
         counter = 0
         global_step_start = self.global_step
         average_loss = utils.MovingAverage(0.01, ['total', 'actor', 'critic'])
-        total_rewards, training_stats = [], []
+        total_rewards, training_stats, total_length = [], [], []
 
         if self.eval_func is not None:
             stats = self.evaluate(verbose=True)
@@ -105,6 +105,7 @@ class PAACLearner(object):
 
         emulator_steps = np.zeros(num_emulators, dtype=int)
         total_episode_rewards = np.zeros(num_emulators)
+        total_episode_length = np.zeros(num_emulators)
         not_done_masks = torch.zeros(max_local_steps, num_emulators).type(self._tensors.FloatTensor)
         if self.use_rnn:
             hx_init, cx_init = self.network.get_initial_state(num_emulators)
@@ -134,11 +135,17 @@ class PAACLearner(object):
 
                 done_mask = dones.astype(bool)
                 total_episode_rewards += rs
+                total_episode_length += infos
+
                 emulator_steps += 1
 
                 total_rewards.extend(total_episode_rewards[done_mask])
+                #print(total_episode_length[done_mask], np.asarray(emulator_steps[done_mask]))
+                total_length.extend(total_episode_length[done_mask] / np.asarray(emulator_steps[done_mask]))
                 total_episode_rewards[done_mask] = 0.
                 emulator_steps[done_mask] = 0
+                total_episode_length[done_mask] = 0.
+
                 if self.use_rnn and any(done_mask): # we need to clear all lstm states corresponding to the terminated emulators
                         done_idx = is_done.nonzero().view(-1)
                         hx, cx = hx.clone(), cx.clone() #hx_t, cx_t are used for backward op, so we can't modify them in-place
@@ -180,7 +187,7 @@ class PAACLearner(object):
                     total_rewards=total_rewards,
                     average_speed=(self.global_step - global_step_start) / (curr_time - start_time),
                     loop_speed=rollout_steps / (curr_time - loop_start_time),
-                    moving_averages=average_loss, grad_norms=global_norm)
+                    moving_averages=average_loss, grad_norms=global_norm, total_length=total_length)
 
             if counter % (self.eval_every // rollout_steps) == 0:
                 if (self.eval_func is not None):
@@ -251,12 +258,14 @@ class PAACLearner(object):
           best_chkpt_path = join_path(dir, self.CHECKPOINT_BEST)
           shutil.copyfile(last_chkpt_path, best_chkpt_path)
 
-    def _training_info(self, total_rewards, average_speed, loop_speed, moving_averages, grad_norms):
+    def _training_info(self, total_rewards, average_speed, loop_speed, moving_averages, grad_norms, total_length):
+        avg_len = np.mean(total_length) if len(total_rewards) else 0.
+        print(total_length)
         last_ten = np.mean(total_rewards[-10:]) if len(total_rewards) else 0.
-        logger_msg = "Ran {} steps, at {} steps/s ({} steps/s avg), last 10 rewards avg {}"
+        logger_msg = "Ran {} steps, at {} steps/s ({} steps/s avg), last 10 rewards avg {}, average length {}"
 
         lines = ['',]
-        lines.append(logger_msg.format(self.global_step, loop_speed, average_speed, last_ten))
+        lines.append(logger_msg.format(self.global_step, loop_speed, average_speed, last_ten, avg_len))
         lines.append(str(moving_averages))
         lines.append('grad_norm: {}'.format(grad_norms))
         logging.info(yellow('\n'.join(lines)))

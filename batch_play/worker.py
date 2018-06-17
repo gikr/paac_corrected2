@@ -22,7 +22,8 @@ class WorkerProcess(Process):
         self.barrier = barrier
         self.__check_variables(required_vars)
         self._init_required(required_vars) #sets them as instance attributes
-        self.info = {k:v for k,v in extra_outputs} #lets create a shallow copy, just in case.
+        #self.info = {k:v for k,v in extra_outputs} #lets create a shallow copy, just in case.
+        self.info = extra_outputs
 
     def __check_variables(self, given):
         error_msg = "{} requires a shared variable {} to store" +\
@@ -58,18 +59,25 @@ class WorkerProcess(Process):
                             self.state[i] = new_s
                         self.reward[i] = reward
                         self.is_done[i] = is_done
-                        for k in self.info:
-                            self.info[k][i] = info[k]
+                        self.info = info
+                        #for k in self.info:
+                        #    self.info[k][i] = info[k]
                     self.barrier.put(True)
                 elif command == self.Command.RESET:
 
                     for i, emulator in enumerate(emulators):
                         self.state[i], info = emulator.reset()
-                        for k in self.info:
-                            self.info[k][i] = info[k]
+                        self.info = info
+                        #for k in self.info:
+                        #    self.info[k][i] = info[k]
                     self.barrier.put(True)
                 elif command == self.Command.CLOSE:
                     break
+                elif (type(command) == list) and len(command) == 2:
+                    for emulator in emulators:
+                        #print('i am here!!!', command)
+                        emulator.set_length(command)
+                    self.barrier.put(True)
                 else:
                     raise WorkerError("{} has received unknown command {}".format(type(self),command))
         finally:

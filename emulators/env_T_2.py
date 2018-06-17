@@ -59,7 +59,7 @@ def game_art_function(width, leng1, leng2, reward_location):
 
     matrix = ['#########',
               '#L     R#']
-    matrix += [''.join([random.choice(['@', '#']) if i != int(width/2)  else ' ' for i in range(width)]) for j in range(length-5)]
+    matrix += [''.join([random.choice(['@', '@']) if i != int(width/2)  else ' ' for i in range(width)]) for j in range(length-5)]
     matrix += ['+@@# #@@#']
     matrix += ['##@# #@##']
     if reward_location == 0:
@@ -69,11 +69,11 @@ def game_art_function(width, leng1, leng2, reward_location):
     matrix += ['####A####']
     matrix += ['#########']
     #print(np.asarray(matrix).shape[0])
-    return np.asarray(matrix)
+    return np.asarray(matrix), length
 
 
 
-def make_game(randomness, reward_location, enlarge_game_art):
+def make_game(randomness, reward_location, length_lab):
 
   if reward_location is None: #in random case reward location should be None
       if randomness:
@@ -85,7 +85,7 @@ def make_game(randomness, reward_location, enlarge_game_art):
          reward_location = 0
 
   #game = GAME_ART[reward_location]
-  game = game_art_function(9, 9, 9, reward_location)
+  game, length = game_art_function(9, *length_lab, reward_location)
 
   scrolly_info = prefab_drapes.Scrolly.PatternInfo(
       game, STAR_ART, board_northwest_corner_mark='+',
@@ -115,7 +115,7 @@ def make_game(randomness, reward_location, enlarge_game_art):
                'L': ascii_art.Partial(MazeDrape, **left_goal_kwarg),
                'R': ascii_art.Partial(MazeDrape, **right_goal_kwarg),
                'H': ascii_art.Partial(MazeDrape, **hint_position)},
-      update_schedule=[['#', 'H','@'], ['A', 'L', 'R']]) #важно! для того, чтобы обозреваемая часть среды менялась. беэ этого иногда застревает
+      update_schedule=[['#', 'H','@'], ['A', 'L', 'R']]), length #важно! для того, чтобы обозреваемая часть среды менялась. беэ этого иногда застревает
 
 MAZES_WHAT_LIES_BENEATH = [  #что показывать вместо "+"
     '#'
@@ -254,7 +254,7 @@ def print_obs(obs):
 
 def dummy_episode():
     import numpy as np
-    game = make_game(True, None, False)
+    game = make_game(True, None, [10,12])
 
     action_keys = ['up', 'left', 'right', 'noop']
 
