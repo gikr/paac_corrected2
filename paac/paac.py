@@ -3,6 +3,7 @@ import logging
 import shutil
 import time
 import torch
+from collections import deque
 
 import numpy as np
 import torch.nn.functional as F
@@ -67,6 +68,9 @@ class PAACLearner(object):
         self.loss_scaling = self.args['loss_scaling'] #5.
         self.critic_coef = self.args['critic_coef'] #0.25
         self.eval_func = None
+
+        self.rewards_deque = deque(maxlen=64)
+        self.starting_length = [9,10]
 
         if self.args['clip_norm_type'] == 'global':
             self.clip_gradients = nn.utils.clip_grad_norm_
@@ -151,6 +155,14 @@ class PAACLearner(object):
                         hx, cx = hx.clone(), cx.clone() #hx_t, cx_t are used for backward op, so we can't modify them in-place
                         hx[done_idx,:] = hx_init[done_idx, :].detach()
                         cx[done_idx,:] = cx_init[done_idx,:].detach()
+
+                flg = self.check_progress(dones, rs)
+                # print(flg)
+
+                if flg == True:
+                    self.starting_length = np.asarray(self.starting_length) + np.asarray([10, 12])
+                    len_int = list(self.starting_length)
+                    self.batch_env.set_difficulty(len_int)
 
             self.global_step += rollout_steps
             next_v = self.predict_values(states, infos, (hx,cx))
@@ -260,7 +272,6 @@ class PAACLearner(object):
 
     def _training_info(self, total_rewards, average_speed, loop_speed, moving_averages, grad_norms, total_length):
         avg_len = np.mean(total_length) if len(total_rewards) else 0.
-        print(total_length)
         last_ten = np.mean(total_rewards[-10:]) if len(total_rewards) else 0.
         logger_msg = "Ran {} steps, at {} steps/s ({} steps/s avg), last 10 rewards avg {}, average length {}"
 
@@ -292,6 +303,15 @@ class PAACLearner(object):
         self.eval_args = args
         self.eval_kwargs = kwargs
 
+    def check_progress(self, is_done, reward): # there we will check the current progress
+        done_mask = is_done.astype(bool)
+        self.rewards_deque.extend(reward[done_mask])
+        if len(self.rewards_deque) >= 64:
+            #print(len(sum(np.where(np.array(self.rewards) > 0))))
+            if len(sum(np.where(np.array(self.rewards_deque) > 0))) >= 52:
+                #print(self.rewards_deque)
+                return True
+        return False
 
 def check_log_zero(logs_results):
     #print('log_results:', logs_results, sep='\n')
