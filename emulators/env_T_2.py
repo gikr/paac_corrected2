@@ -53,7 +53,10 @@ HINT_CHR = 'H'
 #GOAL_REWARD = 1
 #HINT_REWARD = 20
 
-def game_art_function(width, length, reward_location):
+def game_art_function(width, leng1, leng2, reward_location):
+
+    length = random.randint(leng1, leng2)
+
     matrix = ['#########',
               '#L     R#']
     matrix += [''.join([random.choice(['@', '@']) if i != int(width/2)  else ' ' for i in range(width)]) for j in range(length-5)]
@@ -82,7 +85,7 @@ def make_game(randomness, reward_location, enlarge_game_art):
          reward_location = 0
 
   #game = GAME_ART[reward_location]
-  game = game_art_function(9, 9, reward_location)
+  game = game_art_function(9, 9, 15, reward_location)
 
   scrolly_info = prefab_drapes.Scrolly.PatternInfo(
       game, STAR_ART, board_northwest_corner_mark='+',
