@@ -85,7 +85,7 @@ def make_game(randomness, reward_location, enlarge_game_art):
          reward_location = 0
 
   #game = GAME_ART[reward_location]
-  game = game_art_function(9, 10, 12, reward_location)
+  game = game_art_function(9, 9, 9, reward_location)
 
   scrolly_info = prefab_drapes.Scrolly.PatternInfo(
       game, STAR_ART, board_northwest_corner_mark='+',
