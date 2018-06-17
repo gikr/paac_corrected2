@@ -59,7 +59,7 @@ def game_art_function(width, leng1, leng2, reward_location):
 
     matrix = ['#########',
               '#L     R#']
-    matrix += [''.join([random.choice(['@', '@']) if i != int(width/2)  else ' ' for i in range(width)]) for j in range(length-5)]
+    matrix += [''.join([random.choice(['@', '#']) if i != int(width/2)  else ' ' for i in range(width)]) for j in range(length-5)]
     matrix += ['+@@# #@@#']
     matrix += ['##@# #@##']
     if reward_location == 0:
