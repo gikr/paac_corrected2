@@ -71,6 +71,7 @@ class PAACLearner(object):
 
         self.rewards_deque = deque(maxlen=64)
         self.starting_length = [9,10]
+        self.mean_reward = 0
 
         if self.args['clip_norm_type'] == 'global':
             self.clip_gradients = nn.utils.clip_grad_norm_
@@ -156,7 +157,9 @@ class PAACLearner(object):
                         hx[done_idx,:] = hx_init[done_idx, :].detach()
                         cx[done_idx,:] = cx_init[done_idx,:].detach()
 
-                flg = self.check_progress(dones, rs)
+                #flg = self.check_progress(dones, rs)
+                flg = self.check_progress()
+                #print(flg)
                 # print(flg)
 
                 if flg == True:
@@ -287,6 +290,7 @@ class PAACLearner(object):
         mean_steps = np.mean(num_steps)
         min_r, max_r = np.min(rewards), np.max(rewards)
         mean_r, std_r = np.mean(rewards), np.std(rewards)
+        self.mean_reward = mean_r
 
         stats = TrainingStats(mean_r, max_r, min_r, std_r, mean_steps)
         if verbose:
@@ -303,15 +307,21 @@ class PAACLearner(object):
         self.eval_args = args
         self.eval_kwargs = kwargs
 
-    def check_progress(self, is_done, reward): # there we will check the current progress
-        done_mask = is_done.astype(bool)
-        self.rewards_deque.extend(reward[done_mask])
-        if len(self.rewards_deque) >= 64:
-            #print(len(sum(np.where(np.array(self.rewards) > 0))))
-            if len(sum(np.where(np.array(self.rewards_deque) > 0))) >= 52:
-                #print(self.rewards_deque)
-                return True
-        return False
+    def check_progress(self):
+        if self.mean_reward > 0.70:
+            return True
+        else:
+            return False
+
+    #def check_progress(self, is_done, reward): # there we will check the current progress
+    #    done_mask = is_done.astype(bool)
+    #    self.rewards_deque.extend(reward[done_mask])
+    #    if len(self.rewards_deque) >= 64:
+    #        #print(len(sum(np.where(np.array(self.rewards) > 0))))
+    #        if len(sum(np.where(np.array(self.rewards_deque) > 0))) >= 52:
+    #            #print(self.rewards_deque)
+    #            return True
+    #    return False
 
 def check_log_zero(logs_results):
     #print('log_results:', logs_results, sep='\n')
