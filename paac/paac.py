@@ -274,7 +274,7 @@ class PAACLearner(object):
           shutil.copyfile(last_chkpt_path, best_chkpt_path)
 
     def _training_info(self, total_rewards, average_speed, loop_speed, moving_averages, grad_norms, total_length):
-        avg_len = np.mean(total_length) if len(total_rewards) else 0.
+        avg_len = np.mean(total_length[-10:]) if len(total_rewards) else 0.
         last_ten = np.mean(total_rewards[-10:]) if len(total_rewards) else 0.
         logger_msg = "Ran {} steps, at {} steps/s ({} steps/s avg), last 10 rewards avg {}, average length {}"
 

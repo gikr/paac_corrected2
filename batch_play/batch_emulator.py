@@ -305,6 +305,23 @@ class SequentialBatchEmulator(BaseBatchEmulator):
 
         return self.state, self.reward, self.is_done, self.info
 
+
+    def set_difficulty(self, len_int):
+        # there we will set the new length of labyrinth
+        self.len_lab = len_int
+        # send signals to workers to update their environments(emulators)
+
+        for queue in self.worker_queues:
+            queue.put(len_int)
+
+        for _ in self.workers:
+            self.barrier.get()
+        # wait until all emulators are updated:
+
+        return self.len_lab
+
+
+
     def close(self):
         for em in self.emulators:
             em.close()
