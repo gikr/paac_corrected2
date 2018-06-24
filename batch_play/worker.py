@@ -59,23 +59,21 @@ class WorkerProcess(Process):
                             self.state[i] = new_s
                         self.reward[i] = reward
                         self.is_done[i] = is_done
-                        self.info = info
-                        #for k in self.info:
-                        #    self.info[k][i] = info[k]
+                        for k in self.info:
+                            self.info[k][i] = info[k]
                     self.barrier.put(True)
                 elif command == self.Command.RESET:
 
                     for i, emulator in enumerate(emulators):
                         self.state[i], info = emulator.reset()
-                        self.info = info
-                        #for k in self.info:
-                        #    self.info[k][i] = info[k]
+                        #self.info['length'][i] = info
+                        for k in self.info:
+                            self.info[k][i] = info[k]
                     self.barrier.put(True)
                 elif command == self.Command.CLOSE:
                     break
                 elif (type(command) == list) and len(command) == 2:
                     for emulator in emulators:
-                        #print('i am here!!!', command)
                         emulator.set_length(command)
                     self.barrier.put(True)
                 else:

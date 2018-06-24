@@ -56,7 +56,6 @@ HINT_CHR = 'H'
 def game_art_function(width, leng1, leng2, reward_location):
 
     length = random.randint(leng1, leng2)
-
     matrix = ['#########',
               '#L     R#']
     matrix += [''.join([random.choice(['@', '@']) if i != int(width/2)  else ' ' for i in range(width)]) for j in range(length-5)]

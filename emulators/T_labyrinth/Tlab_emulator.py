@@ -35,7 +35,7 @@ class TLabyrinthEmulator(BaseEnvironment):
         obs_t, r_t, discount_t = self.game.its_showtime()
         obs = convert_obs(obs_t)
         
-        return obs, self.resulting_length
+        return obs, {'length':self.resulting_length}
 
     def next(self, action):
 
@@ -52,7 +52,7 @@ class TLabyrinthEmulator(BaseEnvironment):
                 print_obs(obs)
         termination = 1-discount
 
-        return convert_obs(obs), reward, termination, self.resulting_length
+        return convert_obs(obs), reward, termination, {'length':self.resulting_length}
     
     def set_length(self, length_interval):
         #print('it works', length_interval)

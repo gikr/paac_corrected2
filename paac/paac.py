@@ -140,13 +140,10 @@ class PAACLearner(object):
 
                 done_mask = dones.astype(bool)
                 total_episode_rewards += rs
-                total_episode_length += infos
-
                 emulator_steps += 1
 
                 total_rewards.extend(total_episode_rewards[done_mask])
-                #print(total_episode_length[done_mask], np.asarray(emulator_steps[done_mask]))
-                total_length.extend(total_episode_length[done_mask] / np.asarray(emulator_steps[done_mask]))
+                total_length.extend(infos['length'][done_mask] )
                 total_episode_rewards[done_mask] = 0.
                 emulator_steps[done_mask] = 0
                 total_episode_length[done_mask] = 0.
