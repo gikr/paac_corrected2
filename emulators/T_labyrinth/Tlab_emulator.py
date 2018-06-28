@@ -32,7 +32,7 @@ class TLabyrinthEmulator(BaseEnvironment):
         print('length in Tlab_emulatorrrrrrrrrrrrrrrrr', self.resulting_length, self.length_int)
         obs_t, r_t, discount_t = self.game.its_showtime()
         obs = convert_obs(obs_t)
-        
+        self.observation_shape = obs_t.shape
         return obs, {'length':self.resulting_length}
 
     def next(self, action):
