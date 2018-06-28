@@ -85,7 +85,7 @@ def make_game(randomness, reward_location, length_lab):
 
   #game = GAME_ART[reward_location]
   game, length = game_art_function(9, *length_lab, reward_location)
-
+  print(length, "It works too")
   scrolly_info = prefab_drapes.Scrolly.PatternInfo(
       game, STAR_ART, board_northwest_corner_mark='+',
       what_lies_beneath=MAZES_WHAT_LIES_BENEATH[0],
