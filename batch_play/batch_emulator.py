@@ -233,7 +233,6 @@ class ConcurrentBatchEmulator(BaseBatchEmulator):
 
     def set_difficulty(self, len_int):
         # there we will set the new length of labyrinth
-        self.info['length'] = len_int
         # send signals to workers to update their environments(emulators)
 
         for queue in self.worker_queues:
@@ -310,7 +309,6 @@ class SequentialBatchEmulator(BaseBatchEmulator):
 
     def set_difficulty(self, len_int):
         # there we will set the new length of labyrinth
-        self.info = len_int
         # send signals to workers to update their environments(emulators)
 
         for queue in self.worker_queues:
