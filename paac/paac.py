@@ -164,6 +164,7 @@ class PAACLearner(object):
                     self.starting_length = np.asarray(self.starting_length) + np.asarray([10, 12])
                     len_int = list(self.starting_length)
                     self.batch_env.set_difficulty(len_int)
+                    flg = False
 
             self.global_step += rollout_steps
             next_v = self.predict_values(states, infos, (hx,cx))
