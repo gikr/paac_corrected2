@@ -144,7 +144,6 @@ class PAACLearner(object):
 
                 total_rewards.extend(total_episode_rewards[done_mask])
                 total_length.extend(infos['length'][done_mask])
-                print(total_length, 'it should work paac')
                 total_episode_rewards[done_mask] = 0.
                 emulator_steps[done_mask] = 0
                 total_episode_length[done_mask] = 0.
