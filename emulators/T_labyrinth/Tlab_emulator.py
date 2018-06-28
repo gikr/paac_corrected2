@@ -21,7 +21,7 @@ class TLabyrinthEmulator(BaseEnvironment):
         self.noop = 'pass'
         self.id = actor_id
         self.length_int = [9, 10]
-
+        self.observation_shape = 4
 
 
     def reset(self):
