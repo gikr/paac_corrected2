@@ -51,7 +51,7 @@ class TLabyrinthEmulator(BaseEnvironment):
                 print('action={}, r={}, is_done={}'.format(act_names[act[0]], reward, discount!=1.0))
                 print_obs(obs)
         termination = 1-discount
-
+        print('length in Tlab_emulator', self.resulting_length)
         return convert_obs(obs), reward, termination, {'length':self.resulting_length}
     
     def set_length(self, length_interval):
