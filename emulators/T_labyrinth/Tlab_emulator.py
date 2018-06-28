@@ -53,7 +53,6 @@ class TLabyrinthEmulator(BaseEnvironment):
         return convert_obs(obs), reward, termination, {'length':self.resulting_length}
     
     def set_length(self, length_interval):
-        print('it works', length_interval)
         self.length_int = length_interval
         return self.length_int
 
