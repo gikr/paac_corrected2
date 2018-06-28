@@ -21,7 +21,10 @@ class TLabyrinthEmulator(BaseEnvironment):
         self.noop = 'pass'
         self.id = actor_id
         self.length_int = [9, 10]
-        self.observation_shape = 4
+        self.game, self.resulting_length = make_game(False, self.reward_location, self.length_int)
+-       obs_t, r_t, discount_t = self.game.its_showtime()
+-       obs_t = convert_obs(obs_t)
+-       self.observation_shape = obs_t.shape
 
 
     def reset(self):
@@ -32,7 +35,6 @@ class TLabyrinthEmulator(BaseEnvironment):
         print('length in Tlab_emulatorrrrrrrrrrrrrrrrr', self.resulting_length, self.length_int)
         obs_t, r_t, discount_t = self.game.its_showtime()
         obs = convert_obs(obs_t)
-        self.observation_shape = obs_t.shape
         return obs, {'length':self.resulting_length}
 
     def next(self, action):
