@@ -22,8 +22,8 @@ class WorkerProcess(Process):
         self.barrier = barrier
         self.__check_variables(required_vars)
         self._init_required(required_vars) #sets them as instance attributes
-        self.info = {k:v for k,v in extra_outputs} #lets create a shallow copy, just in case.
-        #self.info = extra_outputs
+        #self.info = {k:v for k,v in extra_outputs} #lets create a shallow copy, just in case.
+        self.info = extra_outputs
 
     def __check_variables(self, given):
         error_msg = "{} requires a shared variable {} to store" +\
