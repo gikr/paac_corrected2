@@ -22,9 +22,9 @@ class TLabyrinthEmulator(BaseEnvironment):
         self.id = actor_id
         self.length_int = [9, 10]
         self.game, self.resulting_length = make_game(False, self.reward_location, self.length_int)
--       obs_t, r_t, discount_t = self.game.its_showtime()
--       obs_t = convert_obs(obs_t)
--       self.observation_shape = obs_t.shape
+        obs_t, r_t, discount_t = self.game.its_showtime()
+        obs_t = convert_obs(obs_t)
+        self.observation_shape = obs_t.shape
 
 
     def reset(self):
