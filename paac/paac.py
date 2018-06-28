@@ -156,16 +156,15 @@ class PAACLearner(object):
                         cx[done_idx,:] = cx_init[done_idx,:].detach()
 
                 #flg = self.check_progress(dones, rs)
-                flg = self.check_progress()
-                #print(flg)
-                # print(flg)
+                
+            flg = self.check_progress()
 
-                if flg == True:
-                    self.starting_length = np.asarray(self.starting_length) + np.asarray([10, 12])
-                    len_int = list(self.starting_length)
-                    self.batch_env.set_difficulty(len_int)
-                    flg = False
-
+            if flg == True:
+                self.starting_length = np.asarray(self.starting_length) + np.asarray([10, 12])
+                len_int = list(self.starting_length)
+                self.batch_env.set_difficulty(len_int)
+                flg = False
+                
             self.global_step += rollout_steps
             next_v = self.predict_values(states, infos, (hx,cx))
             R = next_v.detach().view(-1)
