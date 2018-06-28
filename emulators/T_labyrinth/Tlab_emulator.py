@@ -31,8 +31,9 @@ class TLabyrinthEmulator(BaseEnvironment):
     def reset(self):
         """Starts a new episode and returns its initial state"""
         self.reward_location = np.random.choice([0,1]) #0 if np.random.rand() < 0.5 else 1
+        rint('length in Tlab_emulatorrrrrrrrrrrrrrrrr', self.resulting_length, self.length_int)
         self.game, self.resultinig_length = make_game(False, self.reward_location, self.length_int)
-        print('length in Tlab_emulatorrrrrrrrrrrrrrrrr', self.resulting_length)
+        
         obs_t, r_t, discount_t = self.game.its_showtime()
         obs = convert_obs(obs_t)
         
@@ -52,7 +53,6 @@ class TLabyrinthEmulator(BaseEnvironment):
                 print('action={}, r={}, is_done={}'.format(act_names[act[0]], reward, discount!=1.0))
                 print_obs(obs)
         termination = 1-discount
-        print('length in Tlab_emulator', self.resulting_length)
         return convert_obs(obs), reward, termination, {'length':self.resulting_length}
     
     def set_length(self, length_interval):
