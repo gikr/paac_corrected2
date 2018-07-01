@@ -286,7 +286,7 @@ class PAACLearner(object):
     def evaluate(self, verbose=True):
         num_steps, rewards = self.eval_func(*self.eval_args, **self.eval_kwargs)
 
-        print(num_steps, rewards, "evaluate")
+        #print(num_steps, rewards, "evaluate")
         mean_steps = np.mean(num_steps)
         min_r, max_r = np.min(rewards), np.max(rewards)
         mean_r, std_r = np.mean(rewards), np.std(rewards)
