@@ -71,6 +71,7 @@ class PAACLearner(object):
 
         self.rewards_deque = deque(maxlen=64)
         self.starting_length = [9,10]
+        self.flag_enlarge = False
 
         if self.args['clip_norm_type'] == 'global':
             self.clip_gradients = nn.utils.clip_grad_norm_
@@ -158,13 +159,13 @@ class PAACLearner(object):
 
 
             finishing_rewards = finishing_rewards[-100:]  #last 100 results (-1 or 1) of the games
-            flg = self.check_progress(finishing_rewards)  #check percentage of success
+            self.check_progress(finishing_rewards)  #check percentage of success
 
-            if flg == True:
+            if self.flag_enlarge == True:
                 self.starting_length = np.asarray(self.starting_length) + np.asarray([10, 12])
                 len_int = list(self.starting_length)
                 self.batch_env.set_difficulty(len_int)
-                flg = False
+                self.flag_enlarge = False
                 
             self.global_step += rollout_steps
             next_v = self.predict_values(states, infos, (hx,cx))
@@ -286,7 +287,7 @@ class PAACLearner(object):
     def evaluate(self, verbose=True):
         num_steps, rewards = self.eval_func(*self.eval_args, **self.eval_kwargs)
 
-        #print(num_steps, rewards, "evaluate")
+        print(num_steps, rewards, "evaluate")
         mean_steps = np.mean(num_steps)
         min_r, max_r = np.min(rewards), np.max(rewards)
         mean_r, std_r = np.mean(rewards), np.std(rewards)
@@ -311,9 +312,9 @@ class PAACLearner(object):
         temp = list_rewards > 0    #positive results (boolean)
         #print(temp.sum() / len(list_rewards))
         if temp.sum()/len(list_rewards)  > 0.95:
-            return True
+            self.flag_enlarge = True
         else:
-            return False
+            self.flag_enlarge = False
 
     #def check_progress(self, is_done, reward): # there we will check the current progress
     #    done_mask = is_done.astype(bool)
