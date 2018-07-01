@@ -71,7 +71,6 @@ class PAACLearner(object):
 
         self.rewards_deque = deque(maxlen=64)
         self.starting_length = [9,10]
-        self.mean_reward = 0
 
         if self.args['clip_norm_type'] == 'global':
             self.clip_gradients = nn.utils.clip_grad_norm_
@@ -94,6 +93,7 @@ class PAACLearner(object):
         global_step_start = self.global_step
         average_loss = utils.MovingAverage(0.01, ['total', 'actor', 'critic'])
         total_rewards, training_stats, total_length = [], [], []
+        finishing_rewards = []
 
         if self.eval_func is not None:
             stats = self.evaluate(verbose=True)
@@ -142,6 +142,8 @@ class PAACLearner(object):
                 total_episode_rewards += rs
                 emulator_steps += 1
 
+                finishing_rewards.extend(rs[done_mask])
+
                 total_rewards.extend(total_episode_rewards[done_mask])
                 total_length.extend(infos['length'][done_mask])
                 total_episode_rewards[done_mask] = 0.
@@ -154,9 +156,9 @@ class PAACLearner(object):
                         hx[done_idx,:] = hx_init[done_idx, :].detach()
                         cx[done_idx,:] = cx_init[done_idx,:].detach()
 
-                #flg = self.check_progress(dones, rs)
-                
-            flg = self.check_progress()
+
+            finishing_rewards = finishing_rewards[-100:]  #last 100 results (-1 or 1) of the games
+            flg = self.check_progress(finishing_rewards)  #check percentage of success
 
             if flg == True:
                 self.starting_length = np.asarray(self.starting_length) + np.asarray([10, 12])
@@ -284,10 +286,10 @@ class PAACLearner(object):
     def evaluate(self, verbose=True):
         num_steps, rewards = self.eval_func(*self.eval_args, **self.eval_kwargs)
 
+        print(num_steps, rewards, "evaluate")
         mean_steps = np.mean(num_steps)
         min_r, max_r = np.min(rewards), np.max(rewards)
         mean_r, std_r = np.mean(rewards), np.std(rewards)
-        self.mean_reward = mean_r
 
         stats = TrainingStats(mean_r, max_r, min_r, std_r, mean_steps)
         if verbose:
@@ -304,8 +306,11 @@ class PAACLearner(object):
         self.eval_args = args
         self.eval_kwargs = kwargs
 
-    def check_progress(self):
-        if self.mean_reward > 0.70:
+    def check_progress(self, list_rewards):
+        list_rewards = np.asarray(list_rewards) #all last 100 results
+        temp = list_rewards > 0    #positive results (boolean)
+        #print(temp.sum() / len(list_rewards))
+        if temp.sum()/len(list_rewards)  > 0.95:
             return True
         else:
             return False
