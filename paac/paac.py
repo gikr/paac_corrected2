@@ -159,13 +159,15 @@ class PAACLearner(object):
 
 
             finishing_rewards = finishing_rewards[-100:]  #last 100 results (-1 or 1) of the games
-            self.check_progress(finishing_rewards)  #check percentage of success
+            if len(finishing_rewards):
+                self.check_progress(finishing_rewards)  #check percentage of success
 
             if self.flag_enlarge == True:
                 self.starting_length = np.asarray(self.starting_length) + np.asarray([10, 12])
                 len_int = list(self.starting_length)
                 self.batch_env.set_difficulty(len_int)
                 self.flag_enlarge = False
+                finishing_rewards = []
                 
             self.global_step += rollout_steps
             next_v = self.predict_values(states, infos, (hx,cx))
@@ -204,7 +206,7 @@ class PAACLearner(object):
                     loop_speed=rollout_steps / (curr_time - loop_start_time),
                     moving_averages=average_loss, grad_norms=global_norm, total_length=total_length)
 
-            if counter % (self.eval_every // rollout_steps) == 0:
+            if counter % (self.eval_every // rollout_steps) == 5:
                 if (self.eval_func is not None):
                     stats = self.evaluate(self.starting_length, verbose=True)
                     training_stats.append((self.global_step, stats))
@@ -311,8 +313,8 @@ class PAACLearner(object):
     def check_progress(self, list_rewards):
         list_rewards = np.asarray(list_rewards) #all last 100 results
         temp = list_rewards > 0    #positive results (boolean)
-        #print(temp.sum() / len(list_rewards))
-        if temp.sum()/len(list_rewards)  > 0.95:
+        print(temp.sum() / len(list_rewards))
+        if temp.sum()/len(list_rewards) > 0.5:
             self.flag_enlarge = True
         else:
             self.flag_enlarge = False
