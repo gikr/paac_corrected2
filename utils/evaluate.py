@@ -17,7 +17,7 @@ def model_evaluation(eval_function):
     return wrapper
 
 @model_evaluation
-def stats_eval(network, batch_emulator, greedy=False, is_recurrent=False,
+def stats_eval(network, batch_emulator, len_int_paac, greedy=False, is_recurrent=False,
                num_episodes=None):
     """
     Runs play with the network for num_episodes episodes.
@@ -27,6 +27,8 @@ def stats_eval(network, batch_emulator, greedy=False, is_recurrent=False,
     """
     #auto_reset determines if batch_emulator automatically starts new episode when the previous ends
     #if num_episodes < batch_emulator.num_emulators then it is faster to run with auto_reset turned off.
+
+    print("int len in stats eval", len_int_paac)
     auto_reset = getattr(batch_emulator, 'auto_reset', True)
     num_envs = batch_emulator.num_emulators
     num_episodes = num_episodes if num_episodes else num_envs
@@ -40,6 +42,8 @@ def stats_eval(network, batch_emulator, greedy=False, is_recurrent=False,
 
     extra_inputs = {'greedy': greedy}
     extra_inputs['net_state'] = network.get_initial_state(num_envs) if is_recurrent else None
+
+    batch_emulator.set_difficulty(len_int_paac)
     states, infos = batch_emulator.reset_all()
 
     for t in itertools.count():

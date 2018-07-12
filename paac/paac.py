@@ -97,7 +97,7 @@ class PAACLearner(object):
         finishing_rewards = []
 
         if self.eval_func is not None:
-            stats = self.evaluate(verbose=True)
+            stats = self.evaluate(self.starting_length, verbose=True)
             training_stats.append((self.global_step, stats))
 
         #num_actions = self.args['num_actions']
@@ -206,7 +206,7 @@ class PAACLearner(object):
 
             if counter % (self.eval_every // rollout_steps) == 0:
                 if (self.eval_func is not None):
-                    stats = self.evaluate(verbose=True)
+                    stats = self.evaluate(self.starting_length, verbose=True)
                     training_stats.append((self.global_step, stats))
 
             if self.global_step - self.last_saving_step >= self.save_every:
@@ -284,10 +284,11 @@ class PAACLearner(object):
         lines.append('grad_norm: {}'.format(grad_norms))
         logging.info(yellow('\n'.join(lines)))
 
-    def evaluate(self, verbose=True):
-        num_steps, rewards = self.eval_func(*self.eval_args, **self.eval_kwargs)
+    def evaluate(self, len_int_p,  verbose=True):
+        num_steps, rewards = self.eval_func(len_int_p, *self.eval_args, **self.eval_kwargs)
 
-        print(num_steps, rewards, "evaluate")
+
+        print(len_int_p, "int len evaluate")
         mean_steps = np.mean(num_steps)
         min_r, max_r = np.min(rewards), np.max(rewards)
         mean_r, std_r = np.mean(rewards), np.std(rewards)

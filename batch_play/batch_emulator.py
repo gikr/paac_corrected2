@@ -252,6 +252,7 @@ class SequentialBatchEmulator(BaseBatchEmulator):
     It doesn't use multiprocessing.
     SequentialBatchEmulator is mainly used for testing and evaluation of already trained network.
     """
+
     def __init__(self, env_creator, num_emulators,
                  auto_reset=True, extra_vars='all', init_env_id=1000):
         super(SequentialBatchEmulator, self).__init__(env_creator, num_emulators)
@@ -259,9 +260,11 @@ class SequentialBatchEmulator(BaseBatchEmulator):
         for k, var in inputs.items(): setattr(self, k, var)
         for k, var in outputs.items(): setattr(self, k, var)
         self.info = {k:var for k,var in extra_outputs.items()}
+        print('infoooo', self.info)
         #self.info = extra_outputs
         self.auto_reset = auto_reset
         self.completed = [False]*num_emulators
+        self.len = [False]*num_emulators
         self.emulators = [env_creator.create_environment(i+init_env_id) for i in range(num_emulators)]
 
     def reset_all(self):
@@ -271,12 +274,21 @@ class SequentialBatchEmulator(BaseBatchEmulator):
            An array of emulators' states,
            a dict with extra variables(if there is no such variables then the dict is empty).
         """
+        #for emulator in self.emulators:
+        #    emulator.set_length([100,100])
+        #    print(self.info)
+
+
         for i, em in enumerate(self.emulators):
             self.state[i], info = em.reset()
+
             self.completed[i] = False
             #self.info = info
             for k in self.info:
                 self.info[k][i] = info[k]
+
+
+
         return self.state, self.info
 
     def next(self, action):
@@ -285,6 +297,10 @@ class SequentialBatchEmulator(BaseBatchEmulator):
         :param action: Array of actions. if action space is discrete one-hot encoding is used.
         :return: states, rewards, dones, infos
         """
+
+       # for emulator in self.emulators:
+       #     emulator.set_length([100,100])
+
         for i, (em, act) in enumerate(zip(self.emulators, action)):
             if not self.completed[i]:
                 new_s, self.reward[i], self.is_done[i], info = em.next(act)
@@ -311,14 +327,11 @@ class SequentialBatchEmulator(BaseBatchEmulator):
         # there we will set the new length of labyrinth
         # send signals to workers to update their environments(emulators)
 
-        for queue in self.worker_queues:
-            queue.put(len_int)
-
-        for _ in self.workers:
-            self.barrier.get()
+        for i, emulator in enumerate(self.emulators):
+            self.len[i] = emulator.set_length(len_int)
         # wait until all emulators are updated:
 
-        return self.info
+        return len_int
 
 
 

@@ -60,10 +60,12 @@ def concurrent_emulator_handler(batch_env):
     return signal_handler
 
 
-def eval_network(network, env_creator, num_episodes, is_recurrent, greedy=False):
+def eval_network(len_int, network, env_creator, num_episodes, is_recurrent, greedy=False):
     emulator = SequentialBatchEmulator(env_creator, num_episodes, False)
     try:
-        stats = evaluate.stats_eval(network, emulator, is_recurrent=is_recurrent, greedy=greedy)
+        print(network, emulator)
+        print("accepted length", len_int)
+        stats = evaluate.stats_eval(network, emulator, len_int,  is_recurrent=is_recurrent, greedy=greedy)
     finally:
         emulator.close()
         set_exit_handler()

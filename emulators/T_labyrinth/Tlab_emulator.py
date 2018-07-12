@@ -12,6 +12,19 @@ def convert_obs(obs):
     return state.astype(np.uint8)
 
 class TLabyrinthEmulator(BaseEnvironment):
+
+
+    def set_length(self, length_interval):
+        self.length_int = length_interval
+        return self.length_int
+
+    def get_length(self):
+        if self.length_int == None:
+            self.length_int = [9,10]
+        else:
+            return self.length_int
+
+
     def __init__(self, actor_id, args):
         self.randomness = True
         self.reward_location = np.random.choice([0,1]) #0 if np.random.rand() < 0.5 else 1
@@ -20,17 +33,21 @@ class TLabyrinthEmulator(BaseEnvironment):
         #print(self.legal_actions)
         self.noop = 'pass'
         self.id = actor_id
-        self.length_int = [9, 10]
+        self.length_int = None
+        self.get_length()
+
         self.game, self.resulting_length = make_game(False, self.reward_location, self.length_int)
         obs_t, r_t, discount_t = self.game.its_showtime()
         obs_t = convert_obs(obs_t)
         self.observation_shape = obs_t.shape
 
+#ДЛИНА ДОЛЖНА ПЕРЕДАВАТЬСЯ ИЗВНЕ. ТУТ НЕ ДОЛЖНО БЫТЬ НАЧАЛЬНОЙ ДЛИНЫ.
 
     def reset(self):
         """Starts a new episode and returns its initial state"""
         self.reward_location = np.random.choice([0,1]) #0 if np.random.rand() < 0.5 else 1
-       
+        self.get_length()
+        #self.length_int = self.get_length()
         self.game, self.resulting_length = make_game(False, self.reward_location, self.length_int)
         obs_t, r_t, discount_t = self.game.its_showtime()
         obs = convert_obs(obs_t)
@@ -51,10 +68,7 @@ class TLabyrinthEmulator(BaseEnvironment):
                 print_obs(obs)
         termination = 1-discount
         return convert_obs(obs), reward, termination, {'length':self.resulting_length}
-    
-    def set_length(self, length_interval):
-        self.length_int = length_interval
-        return self.length_int
+
 
     def get_legal_actions(self):
         #self.legal_actions = T_lab_actions().shape
