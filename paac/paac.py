@@ -16,7 +16,7 @@ from utils.lr_scheduler import LinearAnnealingLR
 from collections import namedtuple
 
 TrainingStats = namedtuple("TrainingStats",
-                           ['mean_r', 'max_r', 'min_r', 'std_r', 'mean_steps'])
+                           ['mean_r', 'max_r', 'min_r', 'std_r', 'mean_steps', 'final_res'])
 
 class PAACLearner(object):
     CHECKPOINT_SUBDIR = 'checkpoints/'
@@ -143,7 +143,7 @@ class PAACLearner(object):
                 total_episode_rewards += rs
                 emulator_steps += 1
 
-                finishing_rewards.extend(rs[done_mask])
+                #finishing_rewards.extend(rs[done_mask])
 
                 total_rewards.extend(total_episode_rewards[done_mask])
                 total_length.extend(infos['length'][done_mask])
@@ -158,16 +158,16 @@ class PAACLearner(object):
                         cx[done_idx,:] = cx_init[done_idx,:].detach()
 
 
-            finishing_rewards = finishing_rewards[-100:]  #last 100 results (-1 or 1) of the games
-            if len(finishing_rewards):
-                self.check_progress(finishing_rewards)  #check percentage of success
+            #finishing_rewards = finishing_rewards[-100:]  #last 100 results (-1 or 1) of the games
+            #if len(finishing_rewards):
+            #    self.check_progress(finishing_rewards)  #check percentage of success
 
-            if self.flag_enlarge == True:
-                self.starting_length = np.asarray(self.starting_length) + np.asarray([10, 12])
-                len_int = list(self.starting_length)
-                self.batch_env.set_difficulty(len_int)
-                self.flag_enlarge = False
-                finishing_rewards = []
+            #if self.flag_enlarge == True:
+                #self.starting_length = np.asarray(self.starting_length) + np.asarray([10, 12])
+                #len_int = list(self.starting_length)
+                #self.batch_env.set_difficulty(len_int)
+                #self.flag_enlarge = False
+                #finishing_rewards = []
                 
             self.global_step += rollout_steps
             next_v = self.predict_values(states, infos, (hx,cx))
@@ -206,9 +206,13 @@ class PAACLearner(object):
                     loop_speed=rollout_steps / (curr_time - loop_start_time),
                     moving_averages=average_loss, grad_norms=global_norm, total_length=total_length)
 
-            if counter % (self.eval_every // rollout_steps) == 5:
+            if counter % (self.eval_every // rollout_steps) == 0:
                 if (self.eval_func is not None):
                     stats = self.evaluate(self.starting_length, verbose=True)
+                    if stats.final_res > 0.95:
+                        self.starting_length = np.array(self.starting_length) + [10,12]
+                        len_int = list(self.starting_length)
+                        self.batch_env.set_difficulty(len_int)
                     training_stats.append((self.global_step, stats))
 
             if self.global_step - self.last_saving_step >= self.save_every:
@@ -287,20 +291,21 @@ class PAACLearner(object):
         logging.info(yellow('\n'.join(lines)))
 
     def evaluate(self, len_int_p,  verbose=True):
-        num_steps, rewards = self.eval_func(len_int_p, *self.eval_args, **self.eval_kwargs)
+        num_steps, rewards, final_res = self.eval_func(len_int_p, *self.eval_args, **self.eval_kwargs)
 
-
-        print(len_int_p, "int len evaluate")
+        #print(len_int_p, "int len evaluate")
         mean_steps = np.mean(num_steps)
         min_r, max_r = np.min(rewards), np.max(rewards)
         mean_r, std_r = np.mean(rewards), np.std(rewards)
 
-        stats = TrainingStats(mean_r, max_r, min_r, std_r, mean_steps)
+        stats = TrainingStats(mean_r, max_r, min_r, std_r, mean_steps, final_res)
         if verbose:
             lines = [
                 'Perfromed {0} tests:'.format(len(num_steps)),
                 'Mean number of steps: {0:.3f}'.format(mean_steps),
-                'Mean R: {0:.2f} | Std of R: {1:.3f}'.format(mean_r, std_r)]
+                'Mean R: {0:.2f} | Std of R: {1:.3f}'.format(mean_r, std_r),
+                'Success percentage: {} '.format(final_res)]
+
             logging.info(red('\n'.join(lines)))
 
         return stats
@@ -310,14 +315,14 @@ class PAACLearner(object):
         self.eval_args = args
         self.eval_kwargs = kwargs
 
-    def check_progress(self, list_rewards):
-        list_rewards = np.asarray(list_rewards) #all last 100 results
-        temp = list_rewards > 0    #positive results (boolean)
-        print(temp.sum() / len(list_rewards))
-        if temp.sum()/len(list_rewards) > 0.5:
-            self.flag_enlarge = True
-        else:
-            self.flag_enlarge = False
+    #def check_progress(self, list_rewards):
+    #    list_rewards = np.asarray(list_rewards) #all last 100 results
+    #    temp = list_rewards > 0    #positive results (boolean)
+    #    print(temp.sum() / len(list_rewards))
+    #    if temp.sum()/len(list_rewards) > 0.5:
+    #        self.flag_enlarge = True
+    #    else:
+    #        self.flag_enlarge = False
 
     #def check_progress(self, is_done, reward): # there we will check the current progress
     #    done_mask = is_done.astype(bool)

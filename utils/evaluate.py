@@ -28,7 +28,9 @@ def stats_eval(network, batch_emulator, len_int_paac, greedy=False, is_recurrent
     #auto_reset determines if batch_emulator automatically starts new episode when the previous ends
     #if num_episodes < batch_emulator.num_emulators then it is faster to run with auto_reset turned off.
 
-    print("int len in stats eval", len_int_paac)
+    #print("int len in stats eval", len_int_paac)
+    finishing_rewards = []
+
     auto_reset = getattr(batch_emulator, 'auto_reset', True)
     num_envs = batch_emulator.num_emulators
     num_episodes = num_episodes if num_episodes else num_envs
@@ -57,19 +59,23 @@ def stats_eval(network, batch_emulator, len_int_paac, greedy=False, is_recurrent
         just_ended = np.logical_and(running, is_done)
         total_r[running] += rewards[running]
         num_steps[running] += 1
+        finishing_rewards.extend(rewards[just_ended] > 0)
+
         episode_rewards.extend(total_r[just_ended])
         episode_steps.extend(num_steps[just_ended])
         total_r[just_ended] = 0
         num_steps[just_ended] = 0
 
-        if len(episode_rewards) >= num_episodes: break
+        if len(episode_rewards) >= num_episodes:
+            success_percentage = np.array(finishing_rewards).sum()/num_episodes
+            break
         if not auto_reset:
             terminated = np.logical_or(terminated, is_done)
             if all(terminated):
                 states, infos = batch_emulator.reset_all()
                 terminated[:] = False
 
-    return episode_steps, episode_rewards
+    return episode_steps, episode_rewards, success_percentage
 
 
 @model_evaluation
