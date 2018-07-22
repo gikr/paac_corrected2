@@ -109,6 +109,7 @@ class PAACLearner(object):
         rollout_steps = num_emulators * max_local_steps
 
         states, infos = self.batch_env.reset_all()
+        self.batch_env.set_difficulty(self.starting_length)
 
         emulator_steps = np.zeros(num_emulators, dtype=int)
         total_episode_rewards = np.zeros(num_emulators)

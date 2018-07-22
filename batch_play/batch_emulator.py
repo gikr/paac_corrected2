@@ -260,7 +260,7 @@ class SequentialBatchEmulator(BaseBatchEmulator):
         for k, var in inputs.items(): setattr(self, k, var)
         for k, var in outputs.items(): setattr(self, k, var)
         self.info = {k:var for k,var in extra_outputs.items()}
-        print('infoooo', self.info)
+        #print('infoooo', self.info)
         #self.info = extra_outputs
         self.auto_reset = auto_reset
         self.completed = [False]*num_emulators

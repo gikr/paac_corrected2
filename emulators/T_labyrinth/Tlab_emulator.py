@@ -14,10 +14,6 @@ def convert_obs(obs):
 class TLabyrinthEmulator(BaseEnvironment):
 
 
-    def set_length(self, length_interval):
-        self.length_int = length_interval
-        return self.length_int
-
 
     def __init__(self, actor_id, args):
         self.randomness = True
@@ -34,6 +30,12 @@ class TLabyrinthEmulator(BaseEnvironment):
         self.observation_shape = obs_t.shape
 
 #ДЛИНА ДОЛЖНА ПЕРЕДАВАТЬСЯ ИЗВНЕ. ТУТ НЕ ДОЛЖНО БЫТЬ НАЧАЛЬНОЙ ДЛИНЫ.
+
+    def set_length(self, length_interval):
+        self.length_int = length_interval
+        return self.length_int
+
+
 
     def reset(self):
         """Starts a new episode and returns its initial state"""
