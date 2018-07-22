@@ -147,7 +147,7 @@ class AgentSprite(prefab_sprites.MazeWalker):
     #print(rows, cols, layers['#'][rows-1, cols])
     if actions == 0:    # walk upward?
       self._north(board, the_plot)
-      the_plot.add_reward(-0.01)
+      the_plot.add_reward(0)
 
    # elif actions == 4:  # walk downward?
    #   self._south(board, the_plot)
@@ -156,9 +156,9 @@ class AgentSprite(prefab_sprites.MazeWalker):
     elif actions == 1:  # walk leftward?
       self._west(board, the_plot)
       if (layers['#'][rows, cols - 1] or layers['@'][rows, cols - 1] or layers['H'][rows, cols - 1]):
-          the_plot.add_reward(-0.05)
-      else:
           the_plot.add_reward(-0.01)
+      else:
+          the_plot.add_reward(0)
 
 
           # if layers['H'][things['A'].position]  == True:   #вознаграждение за пребывание в подсказке
@@ -168,13 +168,13 @@ class AgentSprite(prefab_sprites.MazeWalker):
     elif actions == 2:  # walk rightward?
       self._east(board, the_plot)
       if (layers['#'][rows, cols + 1] or layers['@'][rows, cols + 1] or layers['H'][rows, cols + 1]):
-          the_plot.add_reward(-0.05)
-      else:
           the_plot.add_reward(-0.01)
+      else:
+          the_plot.add_reward(0)
 
     elif actions == 3:  # is the player doing nothing?
       self._stay(board, the_plot)
-      the_plot.add_reward(-0.05)
+      the_plot.add_reward(-0.01)
 
     #global prev_position
     #prev_position.append(self.position)
