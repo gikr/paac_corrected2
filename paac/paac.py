@@ -69,8 +69,9 @@ class PAACLearner(object):
         self.critic_coef = self.args['critic_coef'] #0.25
         self.eval_func = None
 
+        self.curr_learning = False
         self.rewards_deque = deque(maxlen=64)
-        self.starting_length = [9,10]
+        self.starting_length = [15,20]  #1. 5-10;  2. 15-20; 3.40-50; 4.90-100
         self.flag_enlarge = False
 
         if self.args['clip_norm_type'] == 'global':
@@ -210,9 +211,10 @@ class PAACLearner(object):
                 if (self.eval_func is not None):
                     stats = self.evaluate(self.starting_length, verbose=True)
                     if stats.final_res > 0.95:
-                        self.starting_length = np.array(self.starting_length) + [10,12]
-                        len_int = list(self.starting_length)
-                        self.batch_env.set_difficulty(len_int)
+                        if self.curr_learning == True:
+                            self.change_length_labyrinth()
+                        else:
+                            pass
                     training_stats.append((self.global_step, stats))
 
             if self.global_step - self.last_saving_step >= self.save_every:
@@ -333,6 +335,13 @@ class PAACLearner(object):
     #            #print(self.rewards_deque)
     #            return True
     #    return False
+
+
+    def change_length_labyrinth(self):
+        self.starting_length = np.array(self.starting_length) + [10, 12]
+        len_int = list(self.starting_length)
+        self.batch_env.set_difficulty(len_int)
+
 
 def check_log_zero(logs_results):
     #print('log_results:', logs_results, sep='\n')
