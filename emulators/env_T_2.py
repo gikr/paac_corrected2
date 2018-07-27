@@ -147,10 +147,7 @@ class AgentSprite(prefab_sprites.MazeWalker):
     #print(rows, cols, layers['#'][rows-1, cols])
     if actions == 0:    # walk upward?
       self._north(board, the_plot)
-      if (layers['#'][rows+1, cols] or layers['@'][rows+1, cols]) :
-          the_plot.add_reward(-0.005)
-      else:
-          the_plot.add_reward(-0.001)
+      the_plot.add_reward(-0.001)
 
    # elif actions == 4:  # walk downward?
    #   self._south(board, the_plot)
