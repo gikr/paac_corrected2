@@ -136,7 +136,7 @@ def add_paac_args(parser, framework):
                         help="Epsilon for the Rmsprop and Adam optimizers."+show_default, dest="e")
     parser.add_argument('-lr', '--initial_lr', default=1e-3, type=float,
                         help="Initial value for the learning rate."+show_default, dest="initial_lr",)
-    parser.add_argument('-lra', '--lr_annealing_steps', default=80000000, type=int,
+    parser.add_argument('-lra', '--lr_annealing_steps', default=100000000, type=int,
                         help="Nr. of global steps during which the learning rate will be linearly" +
                              "annealed towards zero." + show_default,
                         dest="lr_annealing_steps")
@@ -152,7 +152,7 @@ def add_paac_args(parser, framework):
                          local (layer-wise norm), global (global norm)"""+show_default,
                         dest="clip_norm_type")
     parser.add_argument('--gamma', default=0.99, type=float, help="Discount factor."+show_default, dest="gamma")
-    parser.add_argument('--max_global_steps', default=40000000, type=int,
+    parser.add_argument('--max_global_steps', default=80000000, type=int,
                         help="Number of training steps."+show_default,
                         dest="max_global_steps")
     parser.add_argument('--max_local_steps', default=10, type=int,
