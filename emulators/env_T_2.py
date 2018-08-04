@@ -19,7 +19,7 @@ GAME_ART = [
     ['#########',
      '#L     R#',
      '@#@# #@#@',
-     '#@#@ @#@#',  # Testing environment v1.плюсики нужны для самого начала - от какой точки начинаем показывать
+     '#@#@ @#@#',  # Testing environment v1.plus we need to show where we star our game
      '##@# #@##',
      '@### ###@',
      '@@## ##@@',
@@ -113,17 +113,16 @@ def make_game(randomness, reward_location, length_lab):
                'L': ascii_art.Partial(MazeDrape, **left_goal_kwarg),
                'R': ascii_art.Partial(MazeDrape, **right_goal_kwarg),
                'H': ascii_art.Partial(MazeDrape, **hint_position)},
-      update_schedule=[['#', 'H','@'], ['A', 'L', 'R']]), length #важно! для того, чтобы обозреваемая часть среды менялась. беэ этого иногда застревает
+      update_schedule=[['#', 'H','@'], ['A', 'L', 'R']]), length #important for proper changing of partial observable env
 
-MAZES_WHAT_LIES_BENEATH = [  #что показывать вместо "+"
+MAZES_WHAT_LIES_BENEATH = [  #what lies under +
     '#'
 ]
 
 STAR_ART = ['         ',
-	    '    .    ',
-	    '         ',
-	    '         ',
-            '    .    ']   #схема того, какого размера часть хотим видеть
+	        '    .    ',
+	        '         ',
+            '    .    ']   #how large visible part should be
 
 
 
@@ -162,7 +161,7 @@ class AgentSprite(prefab_sprites.MazeWalker):
           the_plot.add_reward(-0.01)
 
 
-          # if layers['H'][things['A'].position]  == True:   #вознаграждение за пребывание в подсказке
+          # if layers['H'][things['A'].position]  == True:   #reward for being inside of hint
      #    the_plot.add_reward(HINT_REWARD)
      # else: the_plot.add_reward(MOVEMENT_REWARD)
 
@@ -173,9 +172,9 @@ class AgentSprite(prefab_sprites.MazeWalker):
       else:
           the_plot.add_reward(-0.01)
 
-    elif actions == 3:  # is the player doing nothing?
-      self._stay(board, the_plot)
-      the_plot.add_reward(-0.01)
+   # elif actions == 3:  # is the player doing nothing?
+   #   self._stay(board, the_plot)
+   #   the_plot.add_reward(-0.01)
 
     #global prev_position
     #prev_position.append(self.position)
@@ -203,8 +202,8 @@ class MazeDrape(prefab_drapes.Scrolly):
 
     elif actions == 2:  # is the player going rightward?
       self._east(the_plot)
-    elif actions == 3:  # is the player doing nothing?
-      self._stay(the_plot)
+   # elif actions == 3:  # is the player doing nothing?
+   #   self._stay(the_plot)
 
 
 
@@ -255,7 +254,7 @@ def dummy_episode():
     import numpy as np
     game = make_game(True, None, [10,12])
 
-    action_keys = ['up', 'left', 'right', 'noop']
+    action_keys = ['up', 'left', 'right'] # 'noop']
 
     obs_t, r_t, discount_t = game.its_showtime()
     total_r = r_t if r_t else 0.
@@ -303,7 +302,7 @@ def T_lab_observation(obs_t):
 
 
 def T_lab_actions():
-	action_keys = [0, 1, 2, 3]
+	action_keys = [0, 1, 2]
 	return(np.ndarray(action_keys))
 
 
