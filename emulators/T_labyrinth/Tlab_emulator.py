@@ -19,7 +19,7 @@ class TLabyrinthEmulator(BaseEnvironment):
         self.randomness = True
         self.reward_location = np.random.choice([0,1]) #0 if np.random.rand() < 0.5 else 1
         self.visualize = getattr(args,'visualize', False)
-        self.legal_actions = [0, 1, 2, 3] #['up', 'left', 'right', 'noop']
+        self.legal_actions = [0, 1, 2] #['up', 'left', 'right', 'noop']
         #print(self.legal_actions)
         self.noop = 'pass'
         self.id = actor_id
@@ -56,7 +56,7 @@ class TLabyrinthEmulator(BaseEnvironment):
         if not self.game.game_over:
             obs, reward, discount = self.game.play(act[0])
             if self.visualize:
-                act_names = ['up', 'left', 'right', 'noop']
+                act_names = ['up', 'left', 'right']
                 print('action={}, r={}, is_done={}'.format(act_names[act[0]], reward, discount!=1.0))
                 print_obs(obs)
         termination = 1-discount
