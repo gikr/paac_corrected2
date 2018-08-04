@@ -71,7 +71,7 @@ class PAACLearner(object):
 
         self.curr_learning = False
         self.rewards_deque = deque(maxlen=64)
-        self.starting_length = [15,20]  #1. 5-10;  2. 15-20; 3.40-50; 4.90-100
+        self.starting_length = [40,50]  #1. 5-10;  2. 15-20; 3.40-50; 4.90-100
         self.flag_enlarge = False
 
         if self.args['clip_norm_type'] == 'global':
