@@ -82,8 +82,8 @@ if __name__=='__main__':
             use_rnn, args.test_count, verbose=1, delay=args.step_delay)
     else:
         num_steps, rewards = eval_network(
-            network, env_creator, args.test_count, is_recurrent = True,
-            use_rnn, greedy=args.greedy)
+            network, env_creator, args.test_count, 
+            use_rnn, greedy=args.greedy, is_recurrent = True)
 
     print('Perfromed {0} tests for {1}.'.format(args.test_count, args.game))
     print('Mean number of steps: {0:.3f}'.format(np.mean(num_steps)))
