@@ -82,7 +82,7 @@ if __name__=='__main__':
             use_rnn, args.test_count, verbose=1, delay=args.step_delay)
     else:
         num_steps, rewards = eval_network(
-            network, env_creator, args.test_count, is_recurrent,
+            network, env_creator, args.test_count, is_recurrent = False,
             use_rnn, greedy=args.greedy)
 
     print('Perfromed {0} tests for {1}.'.format(args.test_count, args.game))
