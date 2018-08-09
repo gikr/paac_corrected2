@@ -51,7 +51,8 @@ def shape_and_dtype(var):
 
 class BaseBatchEmulator(object):
 
-    def __init__(self, env_creator, num_emulators):
+    def __init__(self,  env_creator, num_emulators):
+        #print('in Base batch emulator', env_creator, num_emulators)
         self.num_emulators = num_emulators
         self.num_actions = env_creator.num_actions
         self.obs_shape = env_creator.obs_shape
@@ -67,9 +68,11 @@ class BaseBatchEmulator(object):
                  a dict with the extra_vars.
                  All dicts' values are numpy arrays.
         """
+
         num_em = self.num_emulators
         #example_em = env_creator.create_environment(-1, visualize=False, verbose=0)
         example_em = env_creator.create_environment(2)
+        print('in create variables', env_creator)
         _, info = example_em.reset()
 
         input_vars = {
@@ -125,6 +128,9 @@ class ConcurrentBatchEmulator(BaseBatchEmulator):
         super(ConcurrentBatchEmulator, self).__init__(env_creator, num_emulators)
         self.num_workers = num_workers
         self._command = worker_cls.Command
+        self.num_emulators = num_emulators
+        self.num_actions = env_creator.num_actions
+        self.obs_shape = env_creator.obs_shape
 
         inputs, outputs, extra_outputs = self._create_variables(env_creator, extra_vars)
         for k, array in inputs.items(): # default inputs: action
@@ -256,7 +262,12 @@ class SequentialBatchEmulator(BaseBatchEmulator):
     def __init__(self, env_creator, num_emulators,
                  auto_reset=True, extra_vars='all', init_env_id=1000):
         super(SequentialBatchEmulator, self).__init__(env_creator, num_emulators)
+        self.num_emulators = num_emulators
+        self.num_actions = env_creator.num_actions
+        self.obs_shape = env_creator.obs_shape
+
         inputs, outputs, extra_outputs = self._create_variables(env_creator, extra_vars)
+        print('in batch emulator', num_emulators, env_creator)
         for k, var in inputs.items(): setattr(self, k, var)
         for k, var in outputs.items(): setattr(self, k, var)
         self.info = {k:var for k,var in extra_outputs.items()}

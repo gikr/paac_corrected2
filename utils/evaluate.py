@@ -1,4 +1,3 @@
-
 import numpy as np
 import itertools
 import logging
@@ -17,7 +16,7 @@ def model_evaluation(eval_function):
     return wrapper
 
 @model_evaluation
-def stats_eval(network, batch_emulator, len_int_paac, greedy=False, is_recurrent=False,
+def stats_eval( network, len_int_paac, batch_emulator, greedy=False, is_recurrent=False,
                num_episodes=None):
     """
     Runs play with the network for num_episodes episodes.
@@ -43,14 +42,17 @@ def stats_eval(network, batch_emulator, len_int_paac, greedy=False, is_recurrent
     action_codes = np.eye(batch_emulator.num_actions)
 
     extra_inputs = {'greedy': greedy}
-    extra_inputs['net_state'] = network.get_initial_state(num_envs) if is_recurrent else None
+    extra_inputs['net_state'] = network.get_initial_state(num_envs) #if is_recurrent else None
+    #print(extra_inputs['net_state'], 'neeeeeeeeeet state')
 
     batch_emulator.set_difficulty(len_int_paac)
     states, infos = batch_emulator.reset_all()
+    #print(extra_inputs['net_state'], 'neeeeeeeeeet state')
 
     for t in itertools.count():
         #print('----- step#{} -----'.format(t))
         acts, net_state = choose_action(network, states, infos, **extra_inputs)
+        #print(net_state, 'net state')
         extra_inputs['net_state'] = net_state
         acts_one_hot = action_codes[acts.data.cpu().view(-1).numpy(),:]
 
@@ -134,12 +136,14 @@ def visual_eval(network, env_creator, greedy=False, is_recurrent=False,
 
 
 def choose_action(network, states, infos, **kwargs):
+
+    print(kwargs, 'kwargs')
     rnn_state = kwargs['net_state']
     if rnn_state is not None:
         values, a_logits, rnn_state = network(states, infos, rnn_state)
     else:
         values, a_logits = network(states, infos)
-
+    #values, a_logits = network(states, infos)
     a_probs = F.softmax(a_logits, dim=1)
     if not kwargs['greedy']:
         acts = a_probs.multinomial(1)
@@ -160,4 +164,4 @@ def T_lab_observation(obs_t):
     matrixes_x = np.asarray(matrixes_x)
     #print("obs_ttttttt22222", keys, matrixes_x)
     #print("obs_ttttttt22222", matrixes_x.shape)
-    return matrixes_x, None    # i need any information about env, rather than just 0,1. so i am returning dict too
+    return matrixes_x, None # i need any information about env, rather than just 0,1. so i am returning dict too

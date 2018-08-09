@@ -63,9 +63,9 @@ def concurrent_emulator_handler(batch_env):
 def eval_network(len_int, network, env_creator, num_episodes, is_recurrent, greedy=False):
     emulator = SequentialBatchEmulator(env_creator, num_episodes, False)
     try:
-        #print(network, emulator)
-        #print("accepted length", len_int)
-        stats = evaluate.stats_eval(network, emulator, len_int,  is_recurrent=is_recurrent, greedy=greedy)
+        print(network, emulator)
+        print("accepted length", len_int)
+        stats = evaluate.stats_eval(network, len_int, emulator, is_recurrent=is_recurrent, greedy=greedy)
     finally:
         emulator.close()
         set_exit_handler()
@@ -106,6 +106,7 @@ def get_network_and_environment_creator(args, random_seed=None):
         Network = tlab_nets[args.arch]
 
     device = args.device
+    print(env_creator)
     num_actions = env_creator.num_actions
     obs_shape = env_creator.obs_shape
     def network_creator():
@@ -116,7 +117,7 @@ def get_network_and_environment_creator(args, random_seed=None):
         else:
             network = Network(num_actions, obs_shape, torch)
         return network
-
+    print('i am here', network_creator, env_creator)
     return network_creator, env_creator
 
 
