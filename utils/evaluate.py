@@ -137,7 +137,7 @@ def visual_eval(network, env_creator, greedy=False, is_recurrent=False,
 
 def choose_action(network, states, infos, **kwargs):
 
-    print(kwargs, 'kwargs')
+    #print(kwargs, 'kwargs')
     rnn_state = kwargs['net_state']
     if rnn_state is not None:
         values, a_logits, rnn_state = network(states, infos, rnn_state)
