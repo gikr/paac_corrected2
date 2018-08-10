@@ -1,0 +1,44 @@
+mls 24, trained on labyrinth length 15-20, test on length [5, 10]
+Perfromed 100 tests for T_lab.
+Mean number of steps: 16.090
+Success percentage: 0.970
+Mean R: 0.65 | Max R: 0.87 | Min R: -1.35 | Std of R: 0.34
+
+
+mls 24, trained on labyrinth length 15-20, test on length [15, 20]
+Perfromed 100 tests for T_lab.
+Mean number of steps: 25.990
+Success percentage: 0.990
+Mean R: 0.56 | Max R: 0.79 | Min R: -1.28 | Std of R: 0.22
+
+
+mls 24, trained on labyrinth length 15-20, test on length [40, 50]
+Perfromed 100 tests for T_lab.
+Mean number of steps: 57.230
+Success percentage: 1.000
+Mean R: 0.12 | Max R: 0.46 | Min R: -0.28 | Std of R: 0.16
+
+
+
+mls 24, trained on labyrinth length 15-20, test on length [50, 100]
+Perfromed 100 tests for T_lab.
+Mean number of steps: 88.410
+Success percentage: 1.000
+Mean R: -0.31 | Max R: 0.41 | Min R: -1.41 | Std of R: 0.32
+
+
+
+mls 24, trained on labyrinth length 15-20, test on length [100, 150]
+Perfromed 100 tests for T_lab.
+Mean number of steps: 148.260
+Success percentage: 1.000
+Mean R: -1.18 | Max R: -0.48 | Min R: -2.35 | Std of R: 0.39
+
+
+mls 24, trained on labyrinth length 15-20, test on length [150, 200]
+Perfromed 100 tests for T_lab.
+Mean number of steps: 200.480
+Success percentage: 0.990
+Mean R: -1.94 | Max R: -1.07 | Min R: -3.26 | Std of R: 0.50
+
+
