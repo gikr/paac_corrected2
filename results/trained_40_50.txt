@@ -1,4 +1,4 @@
-mls 24, trained on labyrinth length 40-50, test on length [5, 10]
+mls 54, trained on labyrinth length 40-50, test on length [5, 10]
 Perfromed 100 tests for T_lab.
 Mean number of steps: 20.710
 Success percentage: 0.890
