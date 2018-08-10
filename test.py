@@ -55,7 +55,7 @@ if __name__=='__main__':
     devices = ['gpu', 'cpu'] if torch.cuda.is_available() else ['cpu']
     parser = argparse.ArgumentParser(formatter_class=argparse.ArgumentDefaultsHelpFormatter)
     parser.add_argument('folder', type=str, help="Folder with a trained model.")
-    parser.add_argument('-tc', '--test_count', default=1, type=int, help="Number of episodes to test the model", dest="test_count")
+    parser.add_argument('-tc', '--test_count', default=100, type=int, help="Number of episodes to test the model", dest="test_count")
     parser.add_argument('-g', '--greedy', action='store_true', help='Determines whether to use a stochastic or deterministic policy')
     parser.add_argument('-d', '--device', default=devices[0], type=str, choices=devices,
         help="Device to be used ('cpu' or 'gpu'). Use CUDA_VISIBLE_DEVICES to specify a particular gpu", dest="device")
@@ -88,10 +88,10 @@ if __name__=='__main__':
     #        [5,10], network, env_creator, args.greedy,
     #        args.test_count, verbose=1)
 
-
+    testing_length = [450,500]
     if not args.visualize:
         # eval_network prints stats by itself
-        num_steps, rewards, success_percentage = eval_network([5,10],
+        num_steps, rewards, success_percentage = eval_network(testing_length ,
             network, env_creator, args.test_count,
              greedy=args.greedy, is_recurrent = True) #[5,10],
     else:
@@ -100,8 +100,10 @@ if __name__=='__main__':
             args.test_count, verbose=1, delay=args.step_delay
         )
     print('in else', type(env_creator))
+    print("mls 14, trained on labyrinth length 5-10, test on length {}".format(testing_length))
     print('Perfromed {0} tests for {1}.'.format(args.test_count, args.game))
     print('Mean number of steps: {0:.3f}'.format(np.mean(num_steps)))
+    print('Success percentage: {0:.3f}'.format(success_percentage))
     print('Mean R: {0:.2f}'.format(np.mean(rewards)), end=' | ')
     print('Max R: {0:.2f}'.format(np.max(rewards)), end=' | ')
     print('Min R: {0:.2f}'.format(np.min(rewards)), end=' | ')
