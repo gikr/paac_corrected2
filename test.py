@@ -88,7 +88,7 @@ if __name__=='__main__':
     #        [5,10], network, env_creator, args.greedy,
     #        args.test_count, verbose=1)
 
-    testing_length = [450,500]
+    testing_length = [5000,5000]
     if not args.visualize:
         # eval_network prints stats by itself
         num_steps, rewards, success_percentage = eval_network(testing_length ,
