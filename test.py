@@ -55,7 +55,7 @@ if __name__=='__main__':
     devices = ['gpu', 'cpu'] if torch.cuda.is_available() else ['cpu']
     parser = argparse.ArgumentParser(formatter_class=argparse.ArgumentDefaultsHelpFormatter)
     parser.add_argument('folder', type=str, help="Folder with a trained model.")
-    parser.add_argument('-tc', '--test_count', default=100, type=int, help="Number of episodes to test the model", dest="test_count")
+    parser.add_argument('-tc', '--test_count', default=10, type=int, help="Number of episodes to test the model", dest="test_count")
     parser.add_argument('-g', '--greedy', action='store_true', help='Determines whether to use a stochastic or deterministic policy')
     parser.add_argument('-d', '--device', default=devices[0], type=str, choices=devices,
         help="Device to be used ('cpu' or 'gpu'). Use CUDA_VISIBLE_DEVICES to specify a particular gpu", dest="device")
