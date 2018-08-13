@@ -72,7 +72,7 @@ class BaseBatchEmulator(object):
         num_em = self.num_emulators
         #example_em = env_creator.create_environment(-1, visualize=False, verbose=0)
         example_em = env_creator.create_environment(2)
-        print('in create variables', env_creator)
+        #print('in create variables', env_creator)
         _, info = example_em.reset()
 
         input_vars = {
@@ -267,7 +267,7 @@ class SequentialBatchEmulator(BaseBatchEmulator):
         self.obs_shape = env_creator.obs_shape
 
         inputs, outputs, extra_outputs = self._create_variables(env_creator, extra_vars)
-        print('in batch emulator', num_emulators, env_creator)
+        #print('in batch emulator', num_emulators, env_creator)
         for k, var in inputs.items(): setattr(self, k, var)
         for k, var in outputs.items(): setattr(self, k, var)
         self.info = {k:var for k,var in extra_outputs.items()}
