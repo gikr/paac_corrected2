@@ -200,7 +200,7 @@ class PAACLearner(object):
                                 critic=critic_loss.item())
 
             counter += 1
-            if counter % (self.print_every // rollout_steps) == 0:
+            if counter % (self.print_every // (rollout_steps/100)) == 0:
                 curr_time = time.time()
                 self._training_info(
                     total_rewards=total_rewards,
@@ -208,7 +208,7 @@ class PAACLearner(object):
                     loop_speed=rollout_steps / (curr_time - loop_start_time),
                     moving_averages=average_loss, grad_norms=global_norm, total_length=total_length)
 
-            if counter % (self.eval_every // rollout_steps) == 0:
+            if counter % (self.eval_every // (rollout_steps/100)) == 0:
                 if (self.eval_func is not None):
                     stats = self.evaluate(self.starting_length, verbose=True)
                     if stats.final_res > 0.95:
