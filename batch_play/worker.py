@@ -72,9 +72,10 @@ class WorkerProcess(Process):
                     self.barrier.put(True)
                 elif command == self.Command.CLOSE:
                     break
-                elif (type(command) == list) and len(command) == 2:
-                    for emulator in emulators:
-                        emulator.set_length(command)
+                elif (type(command) == list): #and len(command) == 2:
+                    for i, emulator in enumerate(emulators):
+                        print(command[i], 'length')
+                        emulator.set_length(command[i])
                     self.barrier.put(True)
                 else:
                     raise WorkerError("{} has received unknown command {}".format(type(self),command))
