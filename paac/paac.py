@@ -200,7 +200,7 @@ class PAACLearner(object):
                                 critic=critic_loss.item())
 
             counter += 1
-            print(counter, self.print_every, rollout_steps, 'counter, self.print_every, rollout_steps')
+            #print(counter, self.print_every, rollout_steps, 'counter, self.print_every, rollout_steps')
             if counter % (self.print_every // rollout_steps) == 0:
                 curr_time = time.time()
                 self._training_info(
