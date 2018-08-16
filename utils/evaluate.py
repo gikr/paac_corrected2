@@ -42,7 +42,7 @@ def stats_eval( network, len_int_paac, batch_emulator, greedy=False, is_recurren
     action_codes = np.eye(batch_emulator.num_actions)
 
     extra_inputs = {'greedy': greedy}
-    extra_inputs['net_state'] = network.get_initial_state(num_envs) #if is_recurrent else None
+    extra_inputs['net_state'] = network.get_initial_state(num_envs) if is_recurrent else None
     #print(extra_inputs['net_state'], 'neeeeeeeeeet state')
 
     batch_emulator.set_difficulty(len_int_paac)
