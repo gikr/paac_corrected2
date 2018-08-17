@@ -16,7 +16,7 @@ def model_evaluation(eval_function):
     return wrapper
 
 @model_evaluation
-def stats_eval( network, len_int_paac, batch_emulator, greedy=False, is_recurrent=False,
+def stats_eval( network, batch_emulator,  len_int_paac, greedy=False, is_recurrent=False,
                num_episodes=None):
     """
     Runs play with the network for num_episodes episodes.
@@ -45,8 +45,9 @@ def stats_eval( network, len_int_paac, batch_emulator, greedy=False, is_recurren
     extra_inputs['net_state'] = network.get_initial_state(num_envs) if is_recurrent else None
     #print(extra_inputs['net_state'], 'neeeeeeeeeet state')
 
-    batch_emulator.set_difficulty(len_int_paac)
+    
     states, infos = batch_emulator.reset_all()
+    batch_emulator.set_difficulty(len_int_paac)
     #print(extra_inputs['net_state'], 'neeeeeeeeeet state')
 
     for t in itertools.count():
