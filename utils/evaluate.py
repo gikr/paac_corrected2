@@ -16,7 +16,7 @@ def model_evaluation(eval_function):
     return wrapper
 
 @model_evaluation
-def stats_eval( network, batch_emulator,  len_int_paac, greedy=False, is_recurrent=False,
+def stats_eval( network, len_int_paac, batch_emulator,   greedy=False, is_recurrent=False,
                num_episodes=None):
     """
     Runs play with the network for num_episodes episodes.
