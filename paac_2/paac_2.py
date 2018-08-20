@@ -301,7 +301,7 @@ class PAACLearner(object):
         logging.info(yellow('\n'.join(lines)))
 
     def evaluate(self, len_int_p,  verbose=True):
-
+        print(len_int_p, '<---length in evaluate')
         num_steps, rewards, final_res = self.eval_func(len_int_p, *self.eval_args, **self.eval_kwargs)
         #print(len_int_p, "int len evaluate")
         mean_steps = np.mean(num_steps)
