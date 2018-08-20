@@ -349,7 +349,7 @@ class PAACLearner(object):
         self.starting_length[4] = np.array(self.starting_length[4]) + [10, 10]
         self.starting_length[5] = np.array(self.starting_length[5]) + [10, 10]
         #len_int = list(self.starting_length)
-        self.checking_length = self.checking_length + [10,10]
+        self.checking_length = np.array(self.checking_length) + [10,10]
         self.batch_env.set_difficulty(self.starting_length)
 
 
