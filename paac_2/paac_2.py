@@ -100,6 +100,7 @@ class PAACLearner(object):
 
         if self.eval_func is not None:
             stats = self.evaluate(self.checking_length, verbose=True)
+            print(self.checking_length, 'self.checking_length')
             training_stats.append((self.global_step, stats))
 
         #num_actions = self.args['num_actions']
