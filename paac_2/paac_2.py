@@ -214,6 +214,7 @@ class PAACLearner(object):
             if counter % (self.eval_every // rollout_steps) == 0:
                 if (self.eval_func is not None):
                     stats = self.evaluate(self.checking_length, verbose=True)
+                    print(self.checking_length, 'self.checking_length')
                     if stats.final_res > 0.95:
                         print(stats.final_res, 'stats.final_res ')
                         if self.curr_learning == True: #if it is curriculum learning, and final_res > 95 %, then enlarge th length
