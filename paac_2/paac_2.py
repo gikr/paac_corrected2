@@ -72,7 +72,7 @@ class PAACLearner(object):
         self.curr_learning = True
         self.rewards_deque = deque(maxlen=64)
         self.starting_length = [[5,10],[5,10],[5,10],[5,10],[15,20],[15,20],[15,20],[15,20]] #1. 5-10;  2. 15-20; 3.40-50; 4.90-100
-        self.checking_length = [15,20]
+        self.checking_length = [[15,20]]
         self.flag_enlarge = False
 
         if self.args['clip_norm_type'] == 'global':
@@ -346,12 +346,13 @@ class PAACLearner(object):
 
 
     def change_length_labyrinth(self):
+        self.checking_length[0] = np.array(self.checking_length[0]) + [10, 10]
         self.starting_length[2] = np.array(self.starting_length[2]) + [10, 10]
         self.starting_length[3] = np.array(self.starting_length[3]) + [10, 10]
         self.starting_length[4] = np.array(self.starting_length[4]) + [10, 10]
         self.starting_length[5] = np.array(self.starting_length[5]) + [10, 10]
         #len_int = list(self.starting_length)
-        self.checking_length = np.array(self.checking_length) + [10,10]
+        
         self.batch_env.set_difficulty(self.starting_length)
 
 
