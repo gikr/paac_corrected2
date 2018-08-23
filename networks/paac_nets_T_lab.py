@@ -157,7 +157,7 @@ class TlabFF_little(nn.Module):
 class TlabLSTM_little(nn.Module):
     def __init__(self, num_actions, observation_shape, input_types,
                  preprocess=preprocess_images):
-        super(TlabLSTM, self).__init__()
+        super(TlabLSTM_little, self).__init__()
         self._num_actions = num_actions
         self._obs_shape = observation_shape
         self._intypes = input_types
