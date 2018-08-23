@@ -72,6 +72,7 @@ class PAACLearner(object):
         self.curr_learning = False
         self.rewards_deque = deque(maxlen=64)
         self.starting_length = [[5,10]]  #1. 5-10;  2. 15-20; 3.40-50; 4.90-100
+        self.checking_length = [5,10]
         self.flag_enlarge = False
 
         if self.args['clip_norm_type'] == 'global':
@@ -98,7 +99,7 @@ class PAACLearner(object):
         finishing_rewards = []
 
         if self.eval_func is not None:
-            stats = self.evaluate(self.starting_length, verbose=True)
+            stats = self.evaluate(self.checking_length, verbose=True)
             training_stats.append((self.global_step, stats))
 
         #num_actions = self.args['num_actions']
@@ -211,7 +212,7 @@ class PAACLearner(object):
 
             if counter % (self.eval_every // rollout_steps) == 0:
                 if (self.eval_func is not None):
-                    stats = self.evaluate(self.starting_length, verbose=True)
+                    stats = self.evaluate(self.checking_length, verbose=True)
                     if stats.final_res > 0.95:
                         if self.curr_learning == True:
                             self.change_length_labyrinth()
