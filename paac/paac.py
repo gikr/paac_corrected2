@@ -25,8 +25,8 @@ class PAACLearner(object):
     CHECKPOINT_BEST = 'checkpoint_best.pth'
 
     save_every = 10**6
-    print_every = 16128 #10240
-    eval_every = 20*16128 #20*10240
+    print_every = 10240
+    eval_every = 20*10240
 
     def __init__(self, network_creator, batch_env, args):
         logging.debug('PAAC init is started')
