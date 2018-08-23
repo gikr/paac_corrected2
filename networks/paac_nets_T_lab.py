@@ -199,7 +199,9 @@ class TlabLSTM_little(nn.Module):
         hx = torch.zeros(batch_size, self.lstm.hidden_size).type(t_type)
         cx = torch.zeros(batch_size, self.lstm.hidden_size).type(t_type)
         return Variable(hx), Variable(cx)
-
+tlab_nets_little = {
+    'lstm': TlabLSTM_little,
+    'ff':TlabFF_little}
 
 
 def init_lstm(module, forget_bias=1.0):
