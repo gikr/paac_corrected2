@@ -194,7 +194,7 @@ def get_arg_parser():
     for framework, subparser in [('T_lab', Tlab_parser), ('T_lab_little', Tlab_little_parser)]:
         paac_group = subparser.add_argument_group(
             title='PAAC arguments', description='Arguments specific to the algorithm')
-    add_paac_args(paac_group, framework)
+        add_paac_args(paac_group, framework)
     return parser
 
 
