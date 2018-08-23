@@ -104,7 +104,11 @@ def get_network_and_environment_creator(args, random_seed=None):
     if args.framework == 'T_lab':
         env_creator = TLabyrinthCreator(args)
         Network = tlab_nets[args.arch]
-
+    
+    if args.framework == 'T_lab_little':
+        env_creator = TLabyrinthCreator(args)
+        Network = tlab_nets_little[args.arch]
+        
     device = args.device
     print(env_creator)
     num_actions = env_creator.num_actions
