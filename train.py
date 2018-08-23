@@ -14,7 +14,7 @@ from paac import PAACLearner
 from batch_play import ConcurrentBatchEmulator, SequentialBatchEmulator, WorkerProcess
 #import multiprocessing
 
-from networks import tlab_nets
+from networks import tlab_nets, tlab_nets_little
 from paac import PAACLearner
 
 logging.basicConfig(stream=sys.stdout, level=logging.DEBUG)
@@ -128,7 +128,7 @@ def get_network_and_environment_creator(args, random_seed=None):
 def add_paac_args(parser, framework):
     devices =['gpu', 'cpu'] if torch.cuda.is_available() else ['cpu']
     default_device = devices[0]
-    nets = tlab_nets
+    nets = tlab_nets, tlab_nets_little
     net_choices = list(nets.keys())
     default_workers = 8
     show_default = " [default: %(default)s]"
