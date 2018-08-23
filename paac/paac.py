@@ -25,8 +25,8 @@ class PAACLearner(object):
     CHECKPOINT_BEST = 'checkpoint_best.pth'
 
     save_every = 10**6
-    print_every = 16128 #10240
-    eval_every = 20*16128 #20*10240
+    print_every = 10240
+    eval_every = 20*10240
 
     def __init__(self, network_creator, batch_env, args):
         logging.debug('PAAC init is started')
@@ -71,8 +71,8 @@ class PAACLearner(object):
 
         self.curr_learning = False
         self.rewards_deque = deque(maxlen=64)
-        self.starting_length = [[5,10], [5,10], [5,10], [5,10], [5,10], [5,10], [5,10], [5,10]]  #1. 5-10;  2. 15-20; 3.40-50; 4.90-100
-        self.checking_length = [5,10]
+        self.starting_length = [[95,100], [95,100], [95,100], [95,100], [95,100], [95,100], [95,100], [95,100]] #1. 5-10;  2. 15-20; 3.40-50; 4.90-100
+        self.checking_length = [95,100]
         self.flag_enlarge = False
 
         if self.args['clip_norm_type'] == 'global':
