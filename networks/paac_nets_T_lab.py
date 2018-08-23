@@ -23,7 +23,7 @@ def preprocess_images(s_numpy, t_types, volatile=False):
 class TlabFF(nn.Module):
     def __init__(self, num_actions, observation_shape, input_types,
                  preprocess=preprocess_images):
-        super(AtariFF, self).__init__()
+        super(TlabFF, self).__init__()
         self._num_actions = num_actions
         self._intypes = input_types
         self._obs_shape = observation_shape
@@ -115,7 +115,7 @@ tlab_nets = {
 class TlabFF_little(nn.Module):
     def __init__(self, num_actions, observation_shape, input_types,
                  preprocess=preprocess_images):
-        super(AtariFF, self).__init__()
+        super(TlabFF_little, self).__init__()
         self._num_actions = num_actions
         self._intypes = input_types
         self._obs_shape = observation_shape
