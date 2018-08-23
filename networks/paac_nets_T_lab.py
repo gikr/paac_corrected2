@@ -112,6 +112,94 @@ tlab_nets = {
     'lstm': TlabLSTM,
     'ff':TlabFF}
 
+class TlabFF_little(nn.Module):
+    def __init__(self, num_actions, observation_shape, input_types,
+                 preprocess=preprocess_images):
+        super(AtariFF, self).__init__()
+        self._num_actions = num_actions
+        self._intypes = input_types
+        self._obs_shape = observation_shape
+        self._preprocess = preprocess
+        self._create_network()
+        #recursivly traverse layers and inits weights and biases:
+        self.apply(init_model_weights)
+        print(self._num_actions)
+        assert self.training == True, "Model won't train If self.training is False"
+
+    def _create_network(self,):
+        C,H,W = self._obs_shape
+        self.conv1 = nn.Conv2d(C, 12, (2,2), stride=1)
+        self.conv2 = nn.Conv2d(12, 24, (2,2), stride=1)
+
+        convs = [self.conv1, self.conv2]
+        C_out, H_out, W_out = calc_output_shape((C, H, W), convs)
+
+        self.fc3 = nn.Linear(C_out*H_out*W_out, 10)
+        self.fc_policy = nn.Linear(10, self._num_actions)
+        self.fc_value = nn.Linear(10, 1)
+
+    def forward(self, states, infos):
+        volatile = not self.training
+
+        states = self._preprocess(states, self._intypes, volatile)
+        x = F.relu(self.conv1(states))
+        x = F.relu(self.conv2(x))
+        x = x.view(x.size()[0], -1)
+        x = F.relu(self.fc3(x))
+        # in pytorch A3C an author just outputs logits(the softmax input).
+        # action_probs = F.softmax(self.fc_policy(x), dim=1)
+        # model outputs logits to be able to compute log_probs via log_softmax later.
+        action_logits = self.fc_policy(x)
+        state_value = self.fc_value(x)
+        return state_value, action_logits
+
+
+class TlabLSTM_little(nn.Module):
+    def __init__(self, num_actions, observation_shape, input_types,
+                 preprocess=preprocess_images):
+        super(TlabLSTM, self).__init__()
+        self._num_actions = num_actions
+        self._obs_shape = observation_shape
+        self._intypes = input_types
+        self._preprocess = preprocess
+        self._create_network()
+        #recursivly traverse layers and inits weights and biases:
+        self.apply(init_model_weights)
+        print(self._num_actions)
+        assert self.training == True, "Model won't train If self.training is False"
+
+    def _create_network(self):
+        C,H,W = self._obs_shape
+        self.conv1 = nn.Conv2d(C, 16, (3,3), stride=1, padding=1)
+        self.conv2 = nn.Conv2d(16, 32, (3,3), stride=1, padding=1)
+
+        convs = [self.conv1, self.conv2]
+        C_out, H_out, W_out = calc_output_shape((C, H, W), convs)
+
+        self.lstm = nn.LSTMCell(C_out*H_out*W_out, 10, bias=True)
+        self.fc_policy = nn.Linear(10, self._num_actions)
+        self.fc_value = nn.Linear(10, 1)
+
+    def forward(self, states, infos, rnn_inputs):
+        volatile = not self.training
+        states = self._preprocess(states, self._intypes)
+        x = F.relu(self.conv1(states))
+        x = F.relu(self.conv2(x))
+        x = x.view(x.size()[0], -1)
+        hx, cx = self.lstm(x, rnn_inputs)
+        return self.fc_value(hx), self.fc_policy(hx), (hx,cx)
+
+    def get_initial_state(self, batch_size):
+        '''
+        Returns initial lstm state as a tuple(hidden_state, cell_state).
+        Intial lstm state is supposed to be used at the begging of an episode.
+        '''
+        volatile = not self.training
+        t_type = self._intypes.FloatTensor
+        hx = torch.zeros(batch_size, self.lstm.hidden_size).type(t_type)
+        cx = torch.zeros(batch_size, self.lstm.hidden_size).type(t_type)
+        return Variable(hx), Variable(cx)
+
 
 
 def init_lstm(module, forget_bias=1.0):
