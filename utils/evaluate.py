@@ -45,9 +45,9 @@ def stats_eval( network, len_int_paac, batch_emulator,   greedy=False, is_recurr
     extra_inputs['net_state'] = network.get_initial_state(num_envs) if is_recurrent else None
     #print(extra_inputs['net_state'], 'neeeeeeeeeet state')
 
-    
-    states, infos = batch_emulator.reset_all()
     batch_emulator.set_difficulty(len_int_paac)
+    states, infos = batch_emulator.reset_all()
+    
     #print(extra_inputs['net_state'], 'neeeeeeeeeet state')
 
     for t in itertools.count():
