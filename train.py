@@ -187,9 +187,14 @@ def get_arg_parser():
 
     Tlab_parser = framework_parser.add_parser('T_lab', help="Arguments for the T labyrinth")
     TLabyrinthCreator.add_required_args(Tlab_parser)
-    paac_group = Tlab_parser.add_argument_group(
-        title='PAAC arguments', description='Arguments specific to the algorithm')
-    add_paac_args(paac_group, framework = 'T_lab')
+    
+    Tlab_little_parser = framework_parser.add_parser('T_lab_little', help="Arguments for the T labyrinth")
+    TLabyrinthCreator.add_required_args(Tlab_little_parser)
+  
+    for framework, subparser in [('T_lab', Tlab_parser), ('T_lab_little', Tlab_little_parser)]:
+        paac_group = subparser.add_argument_group(
+            title='PAAC arguments', description='Arguments specific to the algorithm')
+    add_paac_args(paac_group, framework)
     return parser
 
 
