@@ -38,3 +38,12 @@ Perfromed 100 tests for T_lab.
 Mean number of steps: 195.320
 Success percentage: 1.000
 Mean R: -1.68 | Max R: -0.81 | Min R: -2.57 | Std of R: 0.38
+
+mls 14, trained on labyrinth length 5-10, test on length [450, 500]
+Perfromed 50 tests for T_lab.
+Mean number of steps: 522.580
+Success percentage: 1.000
+Mean R: -6.07 | Max R: -4.95 | Min R: -7.27 | Std of R: 0.53
+
+
+
