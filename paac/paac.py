@@ -71,8 +71,8 @@ class PAACLearner(object):
 
         self.curr_learning = False
         self.rewards_deque = deque(maxlen=64)
-        self.starting_length = [[95,100], [95,100], [95,100], [95,100], [95,100], [95,100], [95,100], [95,100]] #1. 5-10;  2. 15-20; 3.40-50; 4.90-100
-        self.checking_length = [95,100]
+        self.starting_length = [[5,10], [5,10], [5,10], [5,10], [5,10], [5,10], [5,10], [5,10]] #1. 5-10;  2. 15-20; 3.40-50; 4.90-100
+        self.checking_length = [[5,10], [15,20], [40,50], [90,100]]
         self.flag_enlarge = False
 
         if self.args['clip_norm_type'] == 'global':
@@ -99,7 +99,12 @@ class PAACLearner(object):
         finishing_rewards = []
 
         if self.eval_func is not None:
-            stats = self.evaluate(self.checking_length, verbose=True)
+            stats_1 = np.asarray(self.evaluate(self.checking_length[0], verbose=True))
+            stats_2 = np.asarray(self.evaluate(self.checking_length[1], verbose=True))
+            stats_3 = np.asarray(self.evaluate(self.checking_length[2], verbose=True))
+            stats_4 = np.asarray(self.evaluate(self.checking_length[3], verbose=True))
+            print('stats_1',stats_1)
+            stats = tuple((stats_1 + stats_2 + stats_3 + stats_4)/4)
             training_stats.append((self.global_step, stats))
 
         #num_actions = self.args['num_actions']
@@ -221,11 +226,11 @@ class PAACLearner(object):
                     training_stats.append((self.global_step, stats))
 
             if self.global_step - self.last_saving_step >= self.save_every:
-                self._save_progress(self.checkpoint_dir, summaries=training_stats, is_best=False)
+                self._save_progress(self.checkpoint_dir, summaries=training_stats, is_best=True)
                 training_stats = []
                 self.last_saving_step = self.global_step
 
-        self._save_progress(self.checkpoint_dir, is_best=False)
+        self._save_progress(self.checkpoint_dir, is_best=True)
         logging.info('Training ended at step %d' % self.global_step)
 
     def choose_action(self, states, infos, rnn_states):
@@ -266,7 +271,7 @@ class PAACLearner(object):
             return torch.load(last_chkpt_path)
         return None
 
-    def _save_progress(self, dir, summaries=None, is_best=False):
+    def _save_progress(self, dir, summaries=None, is_best=True):
         last_chkpt_path = join_path(dir, self.CHECKPOINT_LAST)
         state = {
             'last_step':self.global_step,
