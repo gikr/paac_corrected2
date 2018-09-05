@@ -218,6 +218,13 @@ class PAACLearner(object):
             if counter % (self.eval_every // rollout_steps) == 0:
                 if (self.eval_func is not None):
                     stats = self.evaluate(self.checking_length, verbose=True)
+                    stats_1 = np.asarray(self.evaluate(self.checking_length[0], verbose=True))
+                    stats_2 = np.asarray(self.evaluate(self.checking_length[1], verbose=True))
+                    stats_3 = np.asarray(self.evaluate(self.checking_length[2], verbose=True))
+                    stats_4 = np.asarray(self.evaluate(self.checking_length[3], verbose=True))
+
+                    stats = tuple((stats_1 + stats_2 + stats_3 + stats_4) / 4)
+                    print('stats', stats)
                     if stats.final_res > 0.95:
                         if self.curr_learning == True:
                             self.change_length_labyrinth()
