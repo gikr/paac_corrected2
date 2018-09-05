@@ -224,7 +224,7 @@ class PAACLearner(object):
 
                     stats = tuple((stats_1 + stats_2 + stats_3 + stats_4) / 4)
                     print('stats', stats)
-                    if stats.final_res > 0.95:
+                    if stats[-1] > 0.95:
                         if self.curr_learning == True:
                             self.change_length_labyrinth()
                         else:
