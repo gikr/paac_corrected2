@@ -69,7 +69,7 @@ class PAACLearner(object):
         self.critic_coef = self.args['critic_coef'] #0.25
         self.eval_func = None
 
-        self.curr_learning = False
+        self.curr_learning = True
         self.rewards_deque = deque(maxlen=64)
         self.starting_length = [[5,10], [5,10], [5,10], [5,10], [5,10], [5,10], [5,10], [5,10]] #1. 5-10;  2. 15-20; 3.40-50; 4.90-100
         self.checking_length = [[5,10], [15,20], [40,50], [90,100]]
@@ -353,9 +353,11 @@ class PAACLearner(object):
 
 
     def change_length_labyrinth(self):
-        self.starting_length = np.array(self.starting_length) + [10, 12]
-        len_int = list(self.starting_length)
-        self.batch_env.set_difficulty(len_int)
+        for i in range(8):
+          self.starting_length[i] = list(np.array(self.starting_length[i]) + [10, 10])
+        print(self.checking_length, 'self.checking_length')
+        
+self.batch_env.set_difficulty(self.starting_length)
 
 
 def check_log_zero(logs_results):
