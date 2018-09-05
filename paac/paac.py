@@ -357,7 +357,7 @@ class PAACLearner(object):
           self.starting_length[i] = list(np.array(self.starting_length[i]) + [10, 10])
         print(self.checking_length, 'self.checking_length')
         
-self.batch_env.set_difficulty(self.starting_length)
+        self.batch_env.set_difficulty(self.starting_length)
 
 
 def check_log_zero(logs_results):
