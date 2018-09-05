@@ -217,7 +217,6 @@ class PAACLearner(object):
 
             if counter % (self.eval_every // rollout_steps) == 0:
                 if (self.eval_func is not None):
-                    stats = self.evaluate(self.checking_length, verbose=True)
                     stats_1 = np.asarray(self.evaluate(self.checking_length[0], verbose=True))
                     stats_2 = np.asarray(self.evaluate(self.checking_length[1], verbose=True))
                     stats_3 = np.asarray(self.evaluate(self.checking_length[2], verbose=True))
