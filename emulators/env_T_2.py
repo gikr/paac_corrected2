@@ -98,7 +98,7 @@ def game_art_function_2(width, leng1, leng2):
     matrix += ['@@@# #@@@']
     matrix += ['####A####']
     matrix += ['#########']
-    print(np.asarray(matrix))
+    #print(np.asarray(matrix))
     return np.asarray(matrix), length, reward_location
     
 
