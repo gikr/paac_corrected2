@@ -88,14 +88,7 @@ def game_art_function_2(width, leng1, leng2, reward_location):
             l_i = l_i + 1
             matrix += ['@@@# #@@@']
         matrix += ['##@# #@##']
-	
-    matrix += ['+@@# #@@#']
-    matrix += ['@@@# #@@@']
-    matrix += ['####A####']
-    matrix += ['#########']
-    #print(np.asarray(matrix))
-    return np.asarray(matrix), length	
-'''
+    
     if reward_location == 0:
         if r_i <= l_i:
             for i in range(l_i - r_i + 1):
@@ -109,6 +102,14 @@ def game_art_function_2(width, leng1, leng2, reward_location):
                 matrix = matrix[:-2]
                 matrix += ['@@@# #@@@']
                 matrix += ['##@# #@##']
+    matrix += ['+@@# #@@#']
+    matrix += ['@@@# #@@@']
+    matrix += ['####A####']
+    matrix += ['#########']
+    #print(np.asarray(matrix))
+    return np.asarray(matrix), length	
+'''
+    
 '''
     
 
