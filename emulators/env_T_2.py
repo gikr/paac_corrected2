@@ -72,21 +72,39 @@ def game_art_function(width, leng1, leng2, reward_location):
 
 def game_art_function_2(width, leng1, leng2, reward_location):
 
+    l_i, r_i = 0, 0
     length = random.randint(leng1, leng2)
     matrix = ['#########',
               '#L     R#']
     matrix += ['##@# #@##']
-    for i in range(int(length/2) - 2):
-        matrix += ['@@@# H@@@']
-        matrix += ['@@@H #@@@']
 
-    matrix += ['+@@# #@@#']
+
+    for i in range(int(length/2) - 2):
+        hint_position = random.randint(0,1)
+        if hint_position == 0:
+            r_i = r_i + 1
+            matrix += ['@@@# H@@@']
+        else:
+            l_i = l_i + 1
+            matrix += ['@@@H #@@@']
+        matrix += ['##@# #@##']
 
     if reward_location == 0:
-        matrix += ['@@@# H@@@']
-    else:
-        matrix += ['#@@H #@@#']
+        if r_i <= l_i:
+            for i in range(l_i - r_i + 1):
+                matrix = matrix[:-2]
+                matrix += ['@@@# H@@@']
+                matrix += ['##@# #@##']
 
+    else:
+        if l_i <= r_i:
+            for i in range(r_i - l_i + 1):
+                matrix = matrix[:-2]
+                matrix += ['@@@H #@@@']
+                matrix += ['##@# #@##']
+
+    matrix += ['+@@# #@@#']
+    matrix += ['@@@# #@@@']
     matrix += ['####A####']
     matrix += ['#########']
     #print(np.asarray(matrix))
