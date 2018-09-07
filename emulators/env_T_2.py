@@ -53,8 +53,8 @@ HINT_CHR = 'H'
 #GOAL_REWARD = 1
 #HINT_REWARD = 20
 
-def game_art_function(width, leng1, leng2, reward_location):
-
+def game_art_function(width, leng1, leng2):
+    reward_location = np.random.choice([0, 1])
     length = random.randint(leng1, leng2)
     matrix = ['#########',
               '#L     R#']
@@ -68,19 +68,16 @@ def game_art_function(width, leng1, leng2, reward_location):
     matrix += ['####A####']
     matrix += ['#########']
     #print(np.asarray(matrix).shape[0])
-    return np.asarray(matrix), length
+    return np.asarray(matrix), length, reward_location
 
-def game_art_function_2(width, leng1, leng2, reward_location):
 
+def game_art_function_2(width, leng1, leng2):
     l_i, r_i = 0, 0
     length = random.randint(leng1, leng2)
     matrix = ['#########',
               '#L     R#']
-    matrix += ['##@# #@##']
-
-
-    for i in range(int(length/2) - 2):
-        hint_position = random.randint(0,1)
+    for i in range(int(length / 2) - 2):
+        hint_position = random.randint(0, 1)
         if hint_position == 0:
             r_i = r_i + 1
             matrix += ['@@@# H@@@']
@@ -88,46 +85,32 @@ def game_art_function_2(width, leng1, leng2, reward_location):
             l_i = l_i + 1
             matrix += ['@@@H #@@@']
         matrix += ['##@# #@##']
-    
-    if reward_location == 0:
-        if r_i <= l_i:
-            for i in range(l_i - r_i + 1):
-                #matrix = matrix[:-2]
-                matrix += ['@@@# H@@@']
-                matrix += ['##@# #@##']
-                del matrix[-4:-2]
-    else:
-        if l_i <= r_i:
-            for i in range(r_i - l_i + 1):
-                #matrix = matrix[:-2]
-                matrix += ['@@@H #@@@']
-                matrix += ['##@# #@##']
-                del matrix[-4:-2]
+
+    if r_i > l_i:
+        reward_location = 0
+    elif r_i < l_i:
+        reward_location = 1
+    elif r_i == l_i:
+        matrix += ['@@@# H@@@']
+        reward_location = 0
+
     matrix += ['+@@# #@@#']
     matrix += ['@@@# #@@@']
     matrix += ['####A####']
     matrix += ['#########']
-    #print(np.asarray(matrix))
-    return np.asarray(matrix), length	
-'''
-    
-'''
+    print(np.asarray(matrix))
+    return np.asarray(matrix), length, reward_location
     
 
-def make_game(randomness, reward_location, length_lab):
+    
 
-  if reward_location is None: #in random case reward location should be None
-      if randomness:
-          # If the agent is in testing mode, randomly choose a Goal location.
+def make_game(length_lab):
 
-         reward_location = np.random.choice([0, 1])
 
-      else:
-         reward_location = 0
 
   #game = GAME_ART[reward_location]
-  #game, length = game_art_function(9, *length_lab, reward_location)
-  game, length = game_art_function_2(9, *length_lab, reward_location)
+  #game, length, reward_location = game_art_function(9, *length_lab, reward_location)
+  game, length, reward_location = game_art_function_2(9, *length_lab)
   scrolly_info = prefab_drapes.Scrolly.PatternInfo(
       game, STAR_ART, board_northwest_corner_mark='+',
       what_lies_beneath=MAZES_WHAT_LIES_BENEATH[0],
