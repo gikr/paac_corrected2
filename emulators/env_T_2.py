@@ -92,20 +92,22 @@ def game_art_function_2(width, leng1, leng2, reward_location):
     if reward_location == 0:
         if r_i <= l_i:
             for i in range(l_i - r_i + 1):
-                matrix[-2:] = []
+                
                 #matrix = matrix[:-2]
-		
                 matrix += ['@@@# H@@@']
                 matrix += ['##@# #@##']
+		del matrix[-4:-2]
 
     else:
         if l_i <= r_i:
             for i in range(r_i - l_i + 1):
-                matrix[-2:] = []
+                
                 #matrix = matrix[:-2]
 		
                 matrix += ['@@@H #@@@']
                 matrix += ['##@# #@##']
+		del matrix[-4:-2]
+		
     matrix += ['+@@# #@@#']
     matrix += ['@@@# #@@@']
     matrix += ['####A####']
