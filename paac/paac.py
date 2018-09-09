@@ -359,7 +359,7 @@ class PAACLearner(object):
     def change_length_labyrinth(self):
         
         for i in range(8):
-          self.starting_length[i] = list(np.array(self.starting_length[i]) + [10, 10])
+          self.starting_length[i] = list(np.array(self.starting_length[i]) + [5,5])
         self.checking_length = np.array(self.checking_length) + [5,5]
         print(self.checking_length, 'self.checking_length')
         
