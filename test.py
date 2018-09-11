@@ -67,7 +67,7 @@ if __name__=='__main__':
     args = fix_args_for_test(args, train_args)
 
     checkpoint_path = utils.join_path(
-        args.folder, PAACLearner.CHECKPOINT_SUBDIR, PAACLearner.CHECKPOINT_LAST
+        args.folder, PAACLearner.CHECKPOINT_SUBDIR, PAACLearner.CHECKPOINT_BEST
     )
     net_creator, env_creator = get_network_and_environment_creator(args)
     print('im test', net_creator, env_creator.num_actions, type(env_creator))
