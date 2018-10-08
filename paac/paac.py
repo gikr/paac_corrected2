@@ -230,6 +230,9 @@ class PAACLearner(object):
                     stats = np.asarray(self.evaluate(self.checking_length, verbose=True))
                     print('stats', stats)
                     if stats[-1] > 0.93:
+                        self._save_progress(self.checkpoint_dir, summaries=training_stats, is_best=True)
+                        training_stats = []
+                        self.last_saving_step = self.global_step
                         if self.curr_learning == True:
                             self.change_length_labyrinth()
                         else:
