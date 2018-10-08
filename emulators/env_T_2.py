@@ -101,16 +101,45 @@ def game_art_function_2(width, leng1, leng2):
     #print(np.asarray(matrix))
     return np.asarray(matrix), length, reward_location
     
+def game_art_function_3(width, leng1, leng2): #position of reward will depend on parity of number. right to even, left to odd
+    l_i, r_i = 0, 0
+    length = random.randint(leng1, leng2)
+    matrix = ['#########',
+              '#L     R#']
+    for i in range(int(length / 2) - 2):
+        hint_position = random.randint(0, 1)
+        if hint_position == 0:
+            r_i = r_i + 1
+            matrix += ['@@@# H@@@']
+        else:
+            l_i = l_i + 1
+            matrix += ['@@@H #@@@']
+        matrix += ['##@# #@##']
 
+    if r_i % 2 == 0 and l_i % 2 == 1:
+        reward_location = 0
+    elif r_i % 2 == 1 and l_i % 2 == 0:
+        reward_location = 1
+    elif r_i % 2 == l_i % 2:
+        matrix += ['@@@# H@@@']
+        if r_i % 2 == 1: #if both of them odd -it's easier to make one of them even
+            reward_location = 0
+        elif r_i % 2 == 0:
+            reward_location = 1
+
+    matrix += ['+@@# #@@#']
+    matrix += ['@@@# #@@@']
+    matrix += ['####A####']
+    matrix += ['#########']
+    print(np.asarray(matrix), reward_location)
+    return np.asarray(matrix), length, reward_location
     
 
 def make_game(length_lab):
 
-
-
   #game = GAME_ART[reward_location]
   #game, length, reward_location = game_art_function(9, *length_lab, reward_location)
-  game, length, reward_location = game_art_function_2(9, *length_lab)
+  game, length, reward_location = game_art_function_3(9, *length_lab)
   scrolly_info = prefab_drapes.Scrolly.PatternInfo(
       game, STAR_ART, board_northwest_corner_mark='+',
       what_lies_beneath=MAZES_WHAT_LIES_BENEATH[0],

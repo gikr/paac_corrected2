@@ -13,8 +13,6 @@ def convert_obs(obs):
 
 class TLabyrinthEmulator(BaseEnvironment):
 
-
-
     def __init__(self, actor_id, args):
         self.randomness = True
         self.visualize = getattr(args,'visualize', False)
