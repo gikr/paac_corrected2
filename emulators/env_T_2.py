@@ -131,7 +131,7 @@ def game_art_function_3(width, leng1, leng2): #position of reward will depend on
     matrix += ['@@@# #@@@']
     matrix += ['####A####']
     matrix += ['#########']
-    print(np.asarray(matrix), reward_location)
+    #print(np.asarray(matrix), reward_location)
     return np.asarray(matrix), length, reward_location
     
 
