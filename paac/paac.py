@@ -229,7 +229,7 @@ class PAACLearner(object):
                     #stats = np.asarray(self.evaluate(self.checking_length[0], verbose=True))
                     stats = np.asarray(self.evaluate(self.checking_length, verbose=True))
                     print('stats', stats)
-                    if stats[-1] > 0.90:
+                    if stats[-1] > 0.93:
                         if self.curr_learning == True:
                             self.change_length_labyrinth()
                         else:
