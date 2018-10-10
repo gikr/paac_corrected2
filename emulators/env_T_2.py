@@ -204,9 +204,9 @@ class AgentSprite(prefab_sprites.MazeWalker):
       self._north(board, the_plot)
       the_plot.add_reward(-0.01)
 
-    elif actions == 3:  # walk downward?
-      self._south(board, the_plot)
-      the_plot.add_reward(-0.01)
+    #elif actions == 3:  # walk downward?
+    #  self._south(board, the_plot)
+    #  the_plot.add_reward(-0.01)
 
     elif actions == 1:  # walk leftward?
       self._west(board, the_plot)
@@ -250,8 +250,8 @@ class MazeDrape(prefab_drapes.Scrolly):
 																		#print(actions) - lovely Nones
     if actions == 0:    # is the player going upward?
       self._north(the_plot)
-    elif actions == 3:  # is the player going downward?
-      self._south(the_plot)
+    #elif actions == 3:  # is the player going downward?
+    #  self._south(the_plot)
     elif actions == 1:  # is the player going leftward?
       self._west(the_plot)
 
@@ -276,7 +276,7 @@ def main(argv=()):
   # Make a CursesUi to play it with.
   ui = human_ui.CursesUi(
       keys_to_actions={curses.KEY_UP: 0,
-                       curses.KEY_LEFT: 1, curses.KEY_RIGHT: 2, curses.KEY_DOWN: 3,
+                       curses.KEY_LEFT: 1, curses.KEY_RIGHT: 2
                        -1: 4}, #curses.KEY_DOWN: not using
       delay=200)
 
@@ -357,7 +357,7 @@ def T_lab_observation(obs_t):
 
 
 def T_lab_actions():
-	action_keys = [0, 1, 2, 3]
+	action_keys = [0, 1, 2]
 	return(np.ndarray(action_keys))
 
 
