@@ -276,7 +276,7 @@ def main(argv=()):
   # Make a CursesUi to play it with.
   ui = human_ui.CursesUi(
       keys_to_actions={curses.KEY_UP: 0,
-                       curses.KEY_LEFT: 1, curses.KEY_RIGHT: 2
+                       curses.KEY_LEFT: 1, curses.KEY_RIGHT: 2,
                        -1: 4}, #curses.KEY_DOWN: not using
       delay=200)
 
