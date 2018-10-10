@@ -16,7 +16,7 @@ class TLabyrinthEmulator(BaseEnvironment):
     def __init__(self, actor_id, args):
         self.randomness = True
         self.visualize = getattr(args,'visualize', False)
-        self.legal_actions = [0, 1, 2, 3] #['up', 'left', 'right', 'down']
+        self.legal_actions = [0, 1, 2, 3, 4] #['up', 'left', 'right', 'down']
         #print(self.legal_actions)
         self.noop = 'pass'
         self.id = actor_id
