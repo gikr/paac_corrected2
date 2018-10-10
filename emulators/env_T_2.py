@@ -250,7 +250,7 @@ class MazeDrape(prefab_drapes.Scrolly):
 																		#print(actions) - lovely Nones
     if actions == 0:    # is the player going upward?
       self._north(the_plot)
-    elif actions == 4:  # is the player going downward?
+    elif actions == 3:  # is the player going downward?
       self._south(the_plot)
     elif actions == 1:  # is the player going leftward?
       self._west(the_plot)
