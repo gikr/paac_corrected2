@@ -71,8 +71,8 @@ class PAACLearner(object):
 
         self.curr_learning = True
         self.rewards_deque = deque(maxlen=64)
-        self.starting_length = [[50,60], [50,60],[50,60],[50,60],[50,60], [50,60],[50,60],[50,60]] #1. 5-10;  2. 15-20; 3.40-50; 4.90-100
-        self.checking_length = [50,60]
+        self.starting_length = [[40,50],[40,50],[40,50],[40,50],[40,50],[40,50],[40,50],[40,50]] #1. 5-10;  2. 15-20; 3.40-50; 4.90-100
+        self.checking_length = [40,50]
         #self.checking_length = [[5,10], [15,20], [40,50], [90,100]]
         self.flag_enlarge = False
 
