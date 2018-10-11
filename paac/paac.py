@@ -229,7 +229,7 @@ class PAACLearner(object):
                     #stats = np.asarray(self.evaluate(self.checking_length[0], verbose=True))
                     stats = np.asarray(self.evaluate(self.checking_length, verbose=True))
                     print('stats', stats)
-                    if stats[-1] > 0.98:
+                    if stats[-1] >= 0.98:
                         self._save_progress(self.checkpoint_dir, summaries=training_stats, is_best=True)
                         training_stats = []
                         self.last_saving_step = self.global_step
