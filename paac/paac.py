@@ -69,10 +69,10 @@ class PAACLearner(object):
         self.critic_coef = self.args['critic_coef'] #0.25
         self.eval_func = None
 
-        self.curr_learning = False
+        self.curr_learning = True
         self.rewards_deque = deque(maxlen=64)
-        self.starting_length = [[90,100], [90,100],[90,100], [90,100],[90,100], [90,100],[90,100], [90,100]] #1. 5-10;  2. 15-20; 3.40-50; 4.90-100
-        self.checking_length = [90,100]
+        self.starting_length = [[40,50], [40,50],[40,50],[40,50],[40,50],[40,50],[40,50],[40,50]] #1. 5-10;  2. 15-20; 3.40-50; 4.90-100
+        self.checking_length = [40,50]
         #self.checking_length = [[5,10], [15,20], [40,50], [90,100]]
         self.flag_enlarge = False
 
