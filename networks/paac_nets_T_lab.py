@@ -176,9 +176,9 @@ class TlabLSTM_little(nn.Module):
         convs = [self.conv1, self.conv2]
         C_out, H_out, W_out = calc_output_shape((C, H, W), convs)
 
-        self.lstm = nn.LSTMCell(C_out*H_out*W_out, 128, bias=True)
-        self.fc_policy = nn.Linear(128, self._num_actions)
-        self.fc_value = nn.Linear(128, 1)
+        self.lstm = nn.LSTMCell(C_out*H_out*W_out,2, bias=True)
+        self.fc_policy = nn.Linear(2, self._num_actions)
+        self.fc_value = nn.Linear(2, 1)
 
     def forward(self, states, infos, rnn_inputs):
         volatile = not self.training
