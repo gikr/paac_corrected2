@@ -112,47 +112,6 @@ tlab_nets = {
     'lstm': TlabLSTM,
     'ff':TlabFF}
 
-class TlabFF_little(nn.Module):
-    def __init__(self, num_actions, observation_shape, input_types,
-                 preprocess=preprocess_images):
-        super(TlabFF_little, self).__init__()
-        self._num_actions = num_actions
-        self._intypes = input_types
-        self._obs_shape = observation_shape
-        self._preprocess = preprocess
-        self._create_network()
-        #recursivly traverse layers and inits weights and biases:
-        self.apply(init_model_weights)
-        print(self._num_actions)
-        assert self.training == True, "Model won't train If self.training is False"
-
-    def _create_network(self,):
-        C,H,W = self._obs_shape
-        self.conv1 = nn.Conv2d(C, 12, (2,2), stride=1)
-        self.conv2 = nn.Conv2d(12, 24, (2,2), stride=1)
-
-        convs = [self.conv1, self.conv2]
-        C_out, H_out, W_out = calc_output_shape((C, H, W), convs)
-
-        self.fc3 = nn.Linear(C_out*H_out*W_out, 2)
-        self.fc_policy = nn.Linear(2, self._num_actions)
-        self.fc_value = nn.Linear(2, 1)
-
-    def forward(self, states, infos):
-        volatile = not self.training
-
-        states = self._preprocess(states, self._intypes, volatile)
-        x = F.relu(self.conv1(states))
-        x = F.relu(self.conv2(x))
-        x = x.view(x.size()[0], -1)
-        x = F.relu(self.fc3(x))
-        # in pytorch A3C an author just outputs logits(the softmax input).
-        # action_probs = F.softmax(self.fc_policy(x), dim=1)
-        # model outputs logits to be able to compute log_probs via log_softmax later.
-        action_logits = self.fc_policy(x)
-        state_value = self.fc_value(x)
-        return state_value, action_logits
-
 
 class TlabLSTM_little(nn.Module):
     def __init__(self, num_actions, observation_shape, input_types,
@@ -199,9 +158,9 @@ class TlabLSTM_little(nn.Module):
         hx = torch.zeros(batch_size, self.lstm.hidden_size).type(t_type)
         cx = torch.zeros(batch_size, self.lstm.hidden_size).type(t_type)
         return Variable(hx), Variable(cx)
+    
 tlab_nets_little = {
-    'lstm': TlabLSTM_little,
-    'ff':TlabFF_little}
+    'lstm': TlabLSTM_little}
 
 
 def init_lstm(module, forget_bias=1.0):
