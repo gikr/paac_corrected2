@@ -18,7 +18,7 @@ from collections import namedtuple
 TrainingStats = namedtuple("TrainingStats",
                            ['mean_r', 'max_r', 'min_r', 'std_r', 'mean_steps', 'final_res'])
 
-class PAACLearner(object):
+class PAACLearner_1(object):
     CHECKPOINT_SUBDIR = 'checkpoints/'
     SUMMARY_FILE = 'summaries.pkl4' #pickle, protocol=4
     CHECKPOINT_LAST = 'checkpoint_last.pth'
@@ -71,9 +71,9 @@ class PAACLearner(object):
 
         self.curr_learning = False
         self.rewards_deque = deque(maxlen=64)
-        self.starting_length = [[5,10],[5,10]] #1. 5-10;  2. 15-20; 3.40-50; 4.90-100
-        self.checking_length = [5,10]
-        #self.checking_length = [[5,10], [15,20], [40,50], [90,100]]
+        self.starting_length = [[40,50],[40,50]] #1. 5-10;  2. 15-20; 3.40-50; 4.90-100
+        #self.checking_length = [5,10]
+        self.checking_length = [[5,10], [15,20], [90,100], [250,300], [450,500]]
         self.flag_enlarge = False
 
         if self.args['clip_norm_type'] == 'global':
@@ -100,13 +100,15 @@ class PAACLearner(object):
         finishing_rewards = []
 
         if self.eval_func is not None:
-            #stats_1 = np.asarray(self.evaluate(self.checking_length[0], verbose=True))
-            #stats_2 = np.asarray(self.evaluate(self.checking_length[1], verbose=True))
-            #stats_3 = np.asarray(self.evaluate(self.checking_length[2], verbose=True))
-            #stats_4 = np.asarray(self.evaluate(self.checking_length[3], verbose=True))
+            stats = np.asarray(self.evaluate(self.starting_length[0], verbose=True))
+            stats_0 = np.asarray(self.evaluate(self.checking_length[0], verbose=True))
+            stats_1 = np.asarray(self.evaluate(self.checking_length[1], verbose=True))
+            stats_2 = np.asarray(self.evaluate(self.checking_length[2], verbose=True))
+            stats_3 = np.asarray(self.evaluate(self.checking_length[3], verbose=True))
+            stats_4 = np.asarray(self.evaluate(self.checking_length[4], verbose=True))
             #stats = tuple((stats_1 + stats_2 + stats_3 + stats_4)/4)
             #stats = np.asarray(self.evaluate(self.checking_length[0], verbose=True))
-            stats = np.asarray(self.evaluate(self.checking_length, verbose=True))
+            #stats = np.asarray(self.evaluate(self.checking_length, verbose=True))
             print('stats',stats)
             training_stats.append((self.global_step, stats))
 
@@ -220,15 +222,17 @@ class PAACLearner(object):
 
             if counter % (self.eval_every // rollout_steps) == 0:
                 if (self.eval_func is not None):
-                    #stats_1 = np.asarray(self.evaluate(self.checking_length[0], verbose=True))
-                    #stats_2 = np.asarray(self.evaluate(self.checking_length[1], verbose=True))
-                    #stats_3 = np.asarray(self.evaluate(self.checking_length[2], verbose=True))
-                    #stats_4 = np.asarray(self.evaluate(self.checking_length[3], verbose=True))
+                    stats = np.asarray(self.evaluate(self.starting_length[0], verbose=True))
+                    stats_0 = np.asarray(self.evaluate(self.checking_length[0], verbose=True))
+                    stats_1 = np.asarray(self.evaluate(self.checking_length[1], verbose=True))
+                    stats_2 = np.asarray(self.evaluate(self.checking_length[2], verbose=True))
+                    stats_3 = np.asarray(self.evaluate(self.checking_length[3], verbose=True))
+                    stats_4 = np.asarray(self.evaluate(self.checking_length[4], verbose=True))
 
-                    #stats = tuple((stats_1 + stats_2 + stats_3 + stats_4) / 4)
+                    #stats = np.asarray(self.evaluate(self.checking_length[4], verbose=True))
                     #stats = np.asarray(self.evaluate(self.checking_length[0], verbose=True))
-                    stats = np.asarray(self.evaluate(self.checking_length, verbose=True))
-                    print('stats', stats)
+                    #stats = np.asarray(self.evaluate(self.checking_length, verbose=True))
+                    #print('stats', stats)
                     if stats[-1] >= 0.98:
                         self._save_progress(self.checkpoint_dir, summaries=training_stats, is_best=True)
                         training_stats = []
@@ -325,12 +329,21 @@ class PAACLearner(object):
         stats = TrainingStats(mean_r, max_r, min_r, std_r, mean_steps, final_res)
         if verbose:
             lines = [
+                'testing length {}'.format(len_int_p),
                 'Perfromed {0} tests:'.format(len(num_steps)),
                 'Mean number of steps: {0:.3f}'.format(mean_steps),
                 'Mean R: {0:.2f} | Std of R: {1:.3f}'.format(mean_r, std_r),
                 'Success percentage: {} '.format(final_res)]
 
             logging.info(red('\n'.join(lines)))
+            str_result = str()
+            f = open('testing_result_[40,50]_1.txt', 'a')
+            for i in range(len(lines)):
+                str_result += lines[i]
+                str_result += '\n'
+            str_result += '\n'
+            f.write(str_result)
+            f.close()
 
         return stats
 
