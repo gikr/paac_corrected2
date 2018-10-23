@@ -18,7 +18,7 @@ from collections import namedtuple
 TrainingStats = namedtuple("TrainingStats",
                            ['mean_r', 'max_r', 'min_r', 'std_r', 'mean_steps', 'final_res'])
 
-class PAACLearner_1(object):
+class PAACLearner(object):
     CHECKPOINT_SUBDIR = 'checkpoints/'
     SUMMARY_FILE = 'summaries.pkl4' #pickle, protocol=4
     CHECKPOINT_LAST = 'checkpoint_last.pth'
