@@ -338,6 +338,7 @@ class PAACLearner_9(object):
             logging.info(red('\n'.join(lines)))
             str_result = str()
             f = open('testing_result_[40,50]_9.txt', 'a')
+            str_result += 'currentposition {}'.format(self.global_step)
             for i in range(len(lines)):
                 str_result += lines[i]
                 str_result += '\n'
