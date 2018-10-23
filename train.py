@@ -156,7 +156,7 @@ def add_paac_args(parser, framework):
                          local (layer-wise norm), global (global norm)"""+show_default,
                         dest="clip_norm_type")
     parser.add_argument('--gamma', default=0.99, type=float, help="Discount factor."+show_default, dest="gamma")
-    parser.add_argument('--max_global_steps', default=80000000, type=int,
+    parser.add_argument('--max_global_steps', default=20000000, type=int,
                         help="Number of training steps."+show_default,
                         dest="max_global_steps")
     parser.add_argument('--max_local_steps', default=10, type=int,
