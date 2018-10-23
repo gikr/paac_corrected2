@@ -10,7 +10,6 @@ from emulators import TLabyrinthCreator
 import utils
 import utils.evaluate as evaluate
 #from networks import vizdoom_nets, atari_nets
-from paac import PAACLearner
 from batch_play import ConcurrentBatchEmulator, SequentialBatchEmulator, WorkerProcess
 #import multiprocessing
 
