@@ -84,7 +84,7 @@ def main(args):
     set_exit_handler(concurrent_emulator_handler(batch_env))
     try:
         batch_env.start_workers()
-        learner = PAACLearner_1(network_creator, batch_env, args)
+        learner = PAACLearner_6(network_creator, batch_env, args)
         learner.set_eval_function(eval_network,
                                   learner.network, env_creator, 50, learner.use_rnn) # args to eval_network
         learner.train()
