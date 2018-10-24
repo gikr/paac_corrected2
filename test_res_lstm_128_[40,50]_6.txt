@@ -1,0 +1,1836 @@
+currentposition 0testing length [40, 50]
+Perfromed 50 tests:
+Mean number of steps: 137.860
+Mean R: -4.92 | Std of R: 1.246
+Success percentage: 0.4 
+
+currentposition 0testing length [5, 10]
+Perfromed 50 tests:
+Mean number of steps: 31.220
+Mean R: -0.63 | Std of R: 1.040
+Success percentage: 0.56 
+
+currentposition 0testing length [15, 20]
+Perfromed 50 tests:
+Mean number of steps: 63.380
+Mean R: -1.90 | Std of R: 1.133
+Success percentage: 0.52 
+
+currentposition 0testing length [90, 100]
+Perfromed 50 tests:
+Mean number of steps: 284.940
+Mean R: -9.98 | Std of R: 1.647
+Success percentage: 0.46 
+
+currentposition 0testing length [250, 300]
+Perfromed 50 tests:
+Mean number of steps: 823.560
+Mean R: -29.33 | Std of R: 2.998
+Success percentage: 0.62 
+
+currentposition 0testing length [450, 500]
+Perfromed 50 tests:
+Mean number of steps: 1391.680
+Mean R: -49.94 | Std of R: 3.178
+Success percentage: 0.54 
+
+currentposition 203904testing length [40, 50]
+Perfromed 50 tests:
+Mean number of steps: 72.000
+Mean R: -1.62 | Std of R: 1.046
+Success percentage: 0.38 
+
+currentposition 203904testing length [5, 10]
+Perfromed 50 tests:
+Mean number of steps: 23.340
+Mean R: -0.51 | Std of R: 0.991
+Success percentage: 0.44 
+
+currentposition 203904testing length [15, 20]
+Perfromed 50 tests:
+Mean number of steps: 34.560
+Mean R: -0.49 | Std of R: 1.026
+Success percentage: 0.56 
+
+currentposition 203904testing length [90, 100]
+Perfromed 50 tests:
+Mean number of steps: 141.680
+Mean R: -2.85 | Std of R: 1.041
+Success percentage: 0.48 
+
+currentposition 203904testing length [250, 300]
+Perfromed 50 tests:
+Mean number of steps: 381.620
+Mean R: -7.67 | Std of R: 1.296
+Success percentage: 0.54 
+
+currentposition 203904testing length [450, 500]
+Perfromed 50 tests:
+Mean number of steps: 644.280
+Mean R: -12.86 | Std of R: 1.438
+Success percentage: 0.5 
+
+currentposition 407808testing length [40, 50]
+Perfromed 50 tests:
+Mean number of steps: 67.020
+Mean R: -1.15 | Std of R: 1.007
+Success percentage: 0.54 
+
+currentposition 407808testing length [5, 10]
+Perfromed 50 tests:
+Mean number of steps: 19.160
+Mean R: -0.17 | Std of R: 0.978
+Success percentage: 0.6 
+
+currentposition 407808testing length [15, 20]
+Perfromed 50 tests:
+Mean number of steps: 32.280
+Mean R: -0.52 | Std of R: 1.023
+Success percentage: 0.54 
+
+currentposition 407808testing length [90, 100]
+Perfromed 50 tests:
+Mean number of steps: 127.960
+Mean R: -2.22 | Std of R: 1.033
+Success percentage: 0.54 
+
+currentposition 407808testing length [250, 300]
+Perfromed 50 tests:
+Mean number of steps: 348.040
+Mean R: -6.46 | Std of R: 1.093
+Success percentage: 0.32 
+
+currentposition 407808testing length [450, 500]
+Perfromed 50 tests:
+Mean number of steps: 595.440
+Mean R: -10.47 | Std of R: 1.203
+Success percentage: 0.46 
+
+currentposition 611712testing length [40, 50]
+Perfromed 50 tests:
+Mean number of steps: 60.220
+Mean R: -0.76 | Std of R: 1.011
+Success percentage: 0.46 
+
+currentposition 611712testing length [5, 10]
+Perfromed 50 tests:
+Mean number of steps: 17.640
+Mean R: -0.21 | Std of R: 1.008
+Success percentage: 0.5 
+
+currentposition 611712testing length [15, 20]
+Perfromed 50 tests:
+Mean number of steps: 29.600
+Mean R: -0.44 | Std of R: 0.995
+Success percentage: 0.46 
+
+currentposition 611712testing length [90, 100]
+Perfromed 50 tests:
+Mean number of steps: 111.180
+Mean R: -1.30 | Std of R: 0.979
+Success percentage: 0.5 
+
+currentposition 611712testing length [250, 300]
+Perfromed 50 tests:
+Mean number of steps: 297.640
+Mean R: -3.67 | Std of R: 0.978
+Success percentage: 0.38 
+
+currentposition 611712testing length [450, 500]
+Perfromed 50 tests:
+Mean number of steps: 502.500
+Mean R: -5.96 | Std of R: 1.042
+Success percentage: 0.42 
+
+currentposition 815616testing length [40, 50]
+Perfromed 50 tests:
+Mean number of steps: 57.500
+Mean R: -0.86 | Std of R: 0.986
+Success percentage: 0.46 
+
+currentposition 815616testing length [5, 10]
+Perfromed 50 tests:
+Mean number of steps: 15.800
+Mean R: -0.18 | Std of R: 1.020
+Success percentage: 0.54 
+
+currentposition 815616testing length [15, 20]
+Perfromed 50 tests:
+Mean number of steps: 27.680
+Mean R: -0.55 | Std of R: 0.981
+Success percentage: 0.42 
+
+currentposition 815616testing length [90, 100]
+Perfromed 50 tests:
+Mean number of steps: 113.520
+Mean R: -1.40 | Std of R: 1.002
+Success percentage: 0.56 
+
+currentposition 815616testing length [250, 300]
+Perfromed 50 tests:
+Mean number of steps: 306.700
+Mean R: -3.77 | Std of R: 1.056
+Success percentage: 0.6 
+
+currentposition 815616testing length [450, 500]
+Perfromed 50 tests:
+Mean number of steps: 519.540
+Mean R: -6.59 | Std of R: 1.086
+Success percentage: 0.5 
+
+currentposition 1019520testing length [40, 50]
+Perfromed 50 tests:
+Mean number of steps: 56.780
+Mean R: -0.85 | Std of R: 1.015
+Success percentage: 0.46 
+
+currentposition 1019520testing length [5, 10]
+Perfromed 50 tests:
+Mean number of steps: 15.120
+Mean R: -0.25 | Std of R: 1.008
+Success percentage: 0.5 
+
+currentposition 1019520testing length [15, 20]
+Perfromed 50 tests:
+Mean number of steps: 26.920
+Mean R: -0.40 | Std of R: 1.009
+Success percentage: 0.5 
+
+currentposition 1019520testing length [90, 100]
+Perfromed 50 tests:
+Mean number of steps: 110.300
+Mean R: -1.28 | Std of R: 1.021
+Success percentage: 0.6 
+
+currentposition 1019520testing length [250, 300]
+Perfromed 50 tests:
+Mean number of steps: 306.300
+Mean R: -4.22 | Std of R: 1.074
+Success percentage: 0.42 
+
+currentposition 1019520testing length [450, 500]
+Perfromed 50 tests:
+Mean number of steps: 514.600
+Mean R: -6.63 | Std of R: 1.026
+Success percentage: 0.54 
+
+currentposition 1223424testing length [40, 50]
+Perfromed 50 tests:
+Mean number of steps: 64.140
+Mean R: -1.11 | Std of R: 0.955
+Success percentage: 0.54 
+
+currentposition 1223424testing length [5, 10]
+Perfromed 50 tests:
+Mean number of steps: 18.800
+Mean R: -0.38 | Std of R: 0.980
+Success percentage: 0.5 
+
+currentposition 1223424testing length [15, 20]
+Perfromed 50 tests:
+Mean number of steps: 30.860
+Mean R: -0.66 | Std of R: 1.012
+Success percentage: 0.46 
+
+currentposition 1223424testing length [90, 100]
+Perfromed 50 tests:
+Mean number of steps: 126.180
+Mean R: -2.21 | Std of R: 1.024
+Success percentage: 0.5 
+
+currentposition 1223424testing length [250, 300]
+Perfromed 50 tests:
+Mean number of steps: 342.380
+Mean R: -5.67 | Std of R: 1.036
+Success percentage: 0.56 
+
+currentposition 1223424testing length [450, 500]
+Perfromed 50 tests:
+Mean number of steps: 579.880
+Mean R: -9.70 | Std of R: 1.109
+Success percentage: 0.54 
+
+currentposition 1427328testing length [40, 50]
+Perfromed 50 tests:
+Mean number of steps: 60.400
+Mean R: -0.87 | Std of R: 1.026
+Success percentage: 0.56 
+
+currentposition 1427328testing length [5, 10]
+Perfromed 50 tests:
+Mean number of steps: 17.720
+Mean R: -0.20 | Std of R: 1.078
+Success percentage: 0.6 
+
+currentposition 1427328testing length [15, 20]
+Perfromed 50 tests:
+Mean number of steps: 27.320
+Mean R: -0.33 | Std of R: 1.030
+Success percentage: 0.58 
+
+currentposition 1427328testing length [90, 100]
+Perfromed 50 tests:
+Mean number of steps: 118.920
+Mean R: -1.90 | Std of R: 1.065
+Success percentage: 0.5 
+
+currentposition 1427328testing length [250, 300]
+Perfromed 50 tests:
+Mean number of steps: 319.300
+Mean R: -4.75 | Std of R: 1.077
+Success percentage: 0.56 
+
+currentposition 1427328testing length [450, 500]
+Perfromed 50 tests:
+Mean number of steps: 547.700
+Mean R: -8.47 | Std of R: 1.166
+Success percentage: 0.42 
+
+currentposition 1631232testing length [40, 50]
+Perfromed 50 tests:
+Mean number of steps: 59.520
+Mean R: -0.92 | Std of R: 1.043
+Success percentage: 0.5 
+
+currentposition 1631232testing length [5, 10]
+Perfromed 50 tests:
+Mean number of steps: 16.180
+Mean R: -0.23 | Std of R: 1.010
+Success percentage: 0.54 
+
+currentposition 1631232testing length [15, 20]
+Perfromed 50 tests:
+Mean number of steps: 29.480
+Mean R: -0.45 | Std of R: 1.020
+Success percentage: 0.52 
+
+currentposition 1631232testing length [90, 100]
+Perfromed 50 tests:
+Mean number of steps: 113.540
+Mean R: -1.58 | Std of R: 1.047
+Success percentage: 0.54 
+
+currentposition 1631232testing length [250, 300]
+Perfromed 50 tests:
+Mean number of steps: 309.460
+Mean R: -4.37 | Std of R: 1.083
+Success percentage: 0.52 
+
+currentposition 1631232testing length [450, 500]
+Perfromed 50 tests:
+Mean number of steps: 535.860
+Mean R: -7.89 | Std of R: 0.991
+Success percentage: 0.34 
+
+currentposition 1835136testing length [40, 50]
+Perfromed 50 tests:
+Mean number of steps: 59.120
+Mean R: -0.79 | Std of R: 1.007
+Success percentage: 0.52 
+
+currentposition 1835136testing length [5, 10]
+Perfromed 50 tests:
+Mean number of steps: 18.740
+Mean R: -0.15 | Std of R: 0.965
+Success percentage: 0.58 
+
+currentposition 1835136testing length [15, 20]
+Perfromed 50 tests:
+Mean number of steps: 28.700
+Mean R: -0.35 | Std of R: 0.996
+Success percentage: 0.54 
+
+currentposition 1835136testing length [90, 100]
+Perfromed 50 tests:
+Mean number of steps: 112.700
+Mean R: -1.47 | Std of R: 1.010
+Success percentage: 0.5 
+
+currentposition 1835136testing length [250, 300]
+Perfromed 50 tests:
+Mean number of steps: 299.640
+Mean R: -3.57 | Std of R: 1.002
+Success percentage: 0.6 
+
+currentposition 1835136testing length [450, 500]
+Perfromed 50 tests:
+Mean number of steps: 511.740
+Mean R: -6.34 | Std of R: 1.097
+Success percentage: 0.52 
+
+currentposition 2039040testing length [40, 50]
+Perfromed 50 tests:
+Mean number of steps: 68.060
+Mean R: -1.10 | Std of R: 1.025
+Success percentage: 0.54 
+
+currentposition 2039040testing length [5, 10]
+Perfromed 50 tests:
+Mean number of steps: 25.200
+Mean R: -0.28 | Std of R: 1.035
+Success percentage: 0.6 
+
+currentposition 2039040testing length [15, 20]
+Perfromed 50 tests:
+Mean number of steps: 38.340
+Mean R: -0.38 | Std of R: 1.022
+Success percentage: 0.64 
+
+currentposition 2039040testing length [90, 100]
+Perfromed 50 tests:
+Mean number of steps: 128.620
+Mean R: -1.97 | Std of R: 0.983
+Success percentage: 0.56 
+
+currentposition 2039040testing length [250, 300]
+Perfromed 50 tests:
+Mean number of steps: 331.900
+Mean R: -5.17 | Std of R: 1.098
+Success percentage: 0.52 
+
+currentposition 2039040testing length [450, 500]
+Perfromed 50 tests:
+Mean number of steps: 564.780
+Mean R: -9.04 | Std of R: 1.080
+Success percentage: 0.34 
+
+currentposition 2242944testing length [40, 50]
+Perfromed 50 tests:
+Mean number of steps: 61.120
+Mean R: -1.07 | Std of R: 1.026
+Success percentage: 0.48 
+
+currentposition 2242944testing length [5, 10]
+Perfromed 50 tests:
+Mean number of steps: 17.020
+Mean R: -0.34 | Std of R: 1.000
+Success percentage: 0.5 
+
+currentposition 2242944testing length [15, 20]
+Perfromed 50 tests:
+Mean number of steps: 30.840
+Mean R: -0.39 | Std of R: 1.047
+Success percentage: 0.58 
+
+currentposition 2242944testing length [90, 100]
+Perfromed 50 tests:
+Mean number of steps: 117.400
+Mean R: -1.95 | Std of R: 1.112
+Success percentage: 0.44 
+
+currentposition 2242944testing length [250, 300]
+Perfromed 50 tests:
+Mean number of steps: 323.000
+Mean R: -4.75 | Std of R: 1.186
+Success percentage: 0.56 
+
+currentposition 2242944testing length [450, 500]
+Perfromed 50 tests:
+Mean number of steps: 550.140
+Mean R: -7.98 | Std of R: 1.180
+Success percentage: 0.62 
+
+currentposition 2446848testing length [40, 50]
+Perfromed 50 tests:
+Mean number of steps: 59.380
+Mean R: -0.81 | Std of R: 0.954
+Success percentage: 0.5 
+
+currentposition 2446848testing length [5, 10]
+Perfromed 50 tests:
+Mean number of steps: 17.200
+Mean R: -0.24 | Std of R: 1.029
+Success percentage: 0.5 
+
+currentposition 2446848testing length [15, 20]
+Perfromed 50 tests:
+Mean number of steps: 29.800
+Mean R: -0.64 | Std of R: 0.970
+Success percentage: 0.38 
+
+currentposition 2446848testing length [90, 100]
+Perfromed 50 tests:
+Mean number of steps: 113.140
+Mean R: -1.43 | Std of R: 1.019
+Success percentage: 0.54 
+
+currentposition 2446848testing length [250, 300]
+Perfromed 50 tests:
+Mean number of steps: 311.480
+Mean R: -4.44 | Std of R: 1.058
+Success percentage: 0.36 
+
+currentposition 2446848testing length [450, 500]
+Perfromed 50 tests:
+Mean number of steps: 526.020
+Mean R: -7.21 | Std of R: 1.017
+Success percentage: 0.44 
+
+currentposition 2650752testing length [40, 50]
+Perfromed 50 tests:
+Mean number of steps: 66.340
+Mean R: -0.66 | Std of R: 1.003
+Success percentage: 0.62 
+
+currentposition 2650752testing length [5, 10]
+Perfromed 50 tests:
+Mean number of steps: 22.700
+Mean R: -0.39 | Std of R: 1.005
+Success percentage: 0.46 
+
+currentposition 2650752testing length [15, 20]
+Perfromed 50 tests:
+Mean number of steps: 34.100
+Mean R: -0.56 | Std of R: 1.024
+Success percentage: 0.46 
+
+currentposition 2650752testing length [90, 100]
+Perfromed 50 tests:
+Mean number of steps: 121.200
+Mean R: -1.57 | Std of R: 1.007
+Success percentage: 0.54 
+
+currentposition 2650752testing length [250, 300]
+Perfromed 50 tests:
+Mean number of steps: 319.380
+Mean R: -4.50 | Std of R: 1.027
+Success percentage: 0.46 
+
+currentposition 2650752testing length [450, 500]
+Perfromed 50 tests:
+Mean number of steps: 541.240
+Mean R: -7.54 | Std of R: 1.072
+Success percentage: 0.46 
+
+currentposition 2854656testing length [40, 50]
+Perfromed 50 tests:
+Mean number of steps: 65.440
+Mean R: -0.92 | Std of R: 1.053
+Success percentage: 0.54 
+
+currentposition 2854656testing length [5, 10]
+Perfromed 50 tests:
+Mean number of steps: 19.600
+Mean R: -0.48 | Std of R: 1.021
+Success percentage: 0.42 
+
+currentposition 2854656testing length [15, 20]
+Perfromed 50 tests:
+Mean number of steps: 32.440
+Mean R: -0.47 | Std of R: 1.007
+Success percentage: 0.52 
+
+currentposition 2854656testing length [90, 100]
+Perfromed 50 tests:
+Mean number of steps: 118.880
+Mean R: -1.96 | Std of R: 0.999
+Success percentage: 0.42 
+
+currentposition 2854656testing length [250, 300]
+Perfromed 50 tests:
+Mean number of steps: 323.660
+Mean R: -4.45 | Std of R: 0.944
+Success percentage: 0.68 
+
+currentposition 2854656testing length [450, 500]
+Perfromed 50 tests:
+Mean number of steps: 552.200
+Mean R: -8.25 | Std of R: 1.040
+Success percentage: 0.5 
+
+currentposition 3058560testing length [40, 50]
+Perfromed 50 tests:
+Mean number of steps: 56.680
+Mean R: -0.73 | Std of R: 1.002
+Success percentage: 0.48 
+
+currentposition 3058560testing length [5, 10]
+Perfromed 50 tests:
+Mean number of steps: 18.040
+Mean R: -0.73 | Std of R: 0.892
+Success percentage: 0.26 
+
+currentposition 3058560testing length [15, 20]
+Perfromed 50 tests:
+Mean number of steps: 28.980
+Mean R: -0.21 | Std of R: 0.999
+Success percentage: 0.58 
+
+currentposition 3058560testing length [90, 100]
+Perfromed 50 tests:
+Mean number of steps: 111.180
+Mean R: -1.34 | Std of R: 1.021
+Success percentage: 0.5 
+
+currentposition 3058560testing length [250, 300]
+Perfromed 50 tests:
+Mean number of steps: 302.460
+Mean R: -3.73 | Std of R: 1.080
+Success percentage: 0.44 
+
+currentposition 3058560testing length [450, 500]
+Perfromed 50 tests:
+Mean number of steps: 508.580
+Mean R: -6.07 | Std of R: 0.993
+Success percentage: 0.54 
+
+currentposition 3262464testing length [40, 50]
+Perfromed 50 tests:
+Mean number of steps: 66.620
+Mean R: -1.09 | Std of R: 1.046
+Success percentage: 0.48 
+
+currentposition 3262464testing length [5, 10]
+Perfromed 50 tests:
+Mean number of steps: 22.140
+Mean R: -0.56 | Std of R: 1.105
+Success percentage: 0.46 
+
+currentposition 3262464testing length [15, 20]
+Perfromed 50 tests:
+Mean number of steps: 35.580
+Mean R: -0.63 | Std of R: 0.956
+Success percentage: 0.5 
+
+currentposition 3262464testing length [90, 100]
+Perfromed 50 tests:
+Mean number of steps: 120.220
+Mean R: -1.67 | Std of R: 0.988
+Success percentage: 0.56 
+
+currentposition 3262464testing length [250, 300]
+Perfromed 50 tests:
+Mean number of steps: 318.500
+Mean R: -4.44 | Std of R: 1.029
+Success percentage: 0.52 
+
+currentposition 3262464testing length [450, 500]
+Perfromed 50 tests:
+Mean number of steps: 538.560
+Mean R: -7.49 | Std of R: 1.055
+Success percentage: 0.46 
+
+currentposition 3466368testing length [40, 50]
+Perfromed 50 tests:
+Mean number of steps: 68.880
+Mean R: -1.19 | Std of R: 1.039
+Success percentage: 0.46 
+
+currentposition 3466368testing length [5, 10]
+Perfromed 50 tests:
+Mean number of steps: 23.500
+Mean R: -0.49 | Std of R: 1.021
+Success percentage: 0.48 
+
+currentposition 3466368testing length [15, 20]
+Perfromed 50 tests:
+Mean number of steps: 37.600
+Mean R: -0.74 | Std of R: 1.013
+Success percentage: 0.48 
+
+currentposition 3466368testing length [90, 100]
+Perfromed 50 tests:
+Mean number of steps: 124.600
+Mean R: -1.79 | Std of R: 1.121
+Success percentage: 0.56 
+
+currentposition 3466368testing length [250, 300]
+Perfromed 50 tests:
+Mean number of steps: 324.460
+Mean R: -4.60 | Std of R: 1.127
+Success percentage: 0.58 
+
+currentposition 3466368testing length [450, 500]
+Perfromed 50 tests:
+Mean number of steps: 545.220
+Mean R: -8.08 | Std of R: 1.167
+Success percentage: 0.44 
+
+currentposition 3670272testing length [40, 50]
+Perfromed 50 tests:
+Mean number of steps: 59.760
+Mean R: -0.83 | Std of R: 1.022
+Success percentage: 0.54 
+
+currentposition 3670272testing length [5, 10]
+Perfromed 50 tests:
+Mean number of steps: 18.820
+Mean R: -0.20 | Std of R: 1.047
+Success percentage: 0.56 
+
+currentposition 3670272testing length [15, 20]
+Perfromed 50 tests:
+Mean number of steps: 28.620
+Mean R: -0.40 | Std of R: 1.010
+Success percentage: 0.52 
+
+currentposition 3670272testing length [90, 100]
+Perfromed 50 tests:
+Mean number of steps: 115.440
+Mean R: -1.70 | Std of R: 1.041
+Success percentage: 0.5 
+
+currentposition 3670272testing length [250, 300]
+Perfromed 50 tests:
+Mean number of steps: 321.160
+Mean R: -4.68 | Std of R: 1.150
+Success percentage: 0.5 
+
+currentposition 3670272testing length [450, 500]
+Perfromed 50 tests:
+Mean number of steps: 544.500
+Mean R: -7.93 | Std of R: 1.209
+Success percentage: 0.54 
+
+currentposition 3874176testing length [40, 50]
+Perfromed 50 tests:
+Mean number of steps: 72.400
+Mean R: -1.30 | Std of R: 1.119
+Success percentage: 0.52 
+
+currentposition 3874176testing length [5, 10]
+Perfromed 50 tests:
+Mean number of steps: 19.880
+Mean R: -0.32 | Std of R: 1.005
+Success percentage: 0.54 
+
+currentposition 3874176testing length [15, 20]
+Perfromed 50 tests:
+Mean number of steps: 35.820
+Mean R: -0.80 | Std of R: 1.006
+Success percentage: 0.44 
+
+currentposition 3874176testing length [90, 100]
+Perfromed 50 tests:
+Mean number of steps: 133.080
+Mean R: -2.46 | Std of R: 1.111
+Success percentage: 0.48 
+
+currentposition 3874176testing length [250, 300]
+Perfromed 50 tests:
+Mean number of steps: 349.540
+Mean R: -6.13 | Std of R: 1.105
+Success percentage: 0.52 
+
+currentposition 3874176testing length [450, 500]
+Perfromed 50 tests:
+Mean number of steps: 594.640
+Mean R: -10.29 | Std of R: 1.060
+Success percentage: 0.54 
+
+currentposition 4078080testing length [40, 50]
+Perfromed 50 tests:
+Mean number of steps: 68.120
+Mean R: -1.20 | Std of R: 0.950
+Success percentage: 0.54 
+
+currentposition 4078080testing length [5, 10]
+Perfromed 50 tests:
+Mean number of steps: 22.240
+Mean R: -0.46 | Std of R: 1.043
+Success percentage: 0.48 
+
+currentposition 4078080testing length [15, 20]
+Perfromed 50 tests:
+Mean number of steps: 34.940
+Mean R: -0.41 | Std of R: 0.953
+Success percentage: 0.64 
+
+currentposition 4078080testing length [90, 100]
+Perfromed 50 tests:
+Mean number of steps: 127.580
+Mean R: -2.27 | Std of R: 1.008
+Success percentage: 0.52 
+
+currentposition 4078080testing length [250, 300]
+Perfromed 50 tests:
+Mean number of steps: 348.580
+Mean R: -6.21 | Std of R: 1.251
+Success percentage: 0.44 
+
+currentposition 4078080testing length [450, 500]
+Perfromed 50 tests:
+Mean number of steps: 591.840
+Mean R: -10.33 | Std of R: 1.090
+Success percentage: 0.46 
+
+currentposition 4281984testing length [40, 50]
+Perfromed 50 tests:
+Mean number of steps: 68.720
+Mean R: -1.39 | Std of R: 1.047
+Success percentage: 0.48 
+
+currentposition 4281984testing length [5, 10]
+Perfromed 50 tests:
+Mean number of steps: 24.540
+Mean R: -0.78 | Std of R: 1.049
+Success percentage: 0.4 
+
+currentposition 4281984testing length [15, 20]
+Perfromed 50 tests:
+Mean number of steps: 34.280
+Mean R: -0.97 | Std of R: 0.919
+Success percentage: 0.4 
+
+currentposition 4281984testing length [90, 100]
+Perfromed 50 tests:
+Mean number of steps: 126.960
+Mean R: -1.98 | Std of R: 0.912
+Success percentage: 0.64 
+
+currentposition 4281984testing length [250, 300]
+Perfromed 50 tests:
+Mean number of steps: 338.440
+Mean R: -6.01 | Std of R: 1.050
+Success percentage: 0.32 
+
+currentposition 4281984testing length [450, 500]
+Perfromed 50 tests:
+Mean number of steps: 570.180
+Mean R: -9.33 | Std of R: 1.215
+Success percentage: 0.48 
+
+currentposition 4485888testing length [40, 50]
+Perfromed 50 tests:
+Mean number of steps: 60.700
+Mean R: -0.89 | Std of R: 1.054
+Success percentage: 0.54 
+
+currentposition 4485888testing length [5, 10]
+Perfromed 50 tests:
+Mean number of steps: 21.120
+Mean R: -0.12 | Std of R: 0.925
+Success percentage: 0.64 
+
+currentposition 4485888testing length [15, 20]
+Perfromed 50 tests:
+Mean number of steps: 31.280
+Mean R: -0.63 | Std of R: 1.053
+Success percentage: 0.48 
+
+currentposition 4485888testing length [90, 100]
+Perfromed 50 tests:
+Mean number of steps: 117.080
+Mean R: -1.69 | Std of R: 1.069
+Success percentage: 0.52 
+
+currentposition 4485888testing length [250, 300]
+Perfromed 50 tests:
+Mean number of steps: 311.800
+Mean R: -4.80 | Std of R: 1.018
+Success percentage: 0.36 
+
+currentposition 4485888testing length [450, 500]
+Perfromed 50 tests:
+Mean number of steps: 540.180
+Mean R: -7.61 | Std of R: 1.168
+Success percentage: 0.56 
+
+currentposition 4689792testing length [40, 50]
+Perfromed 50 tests:
+Mean number of steps: 59.800
+Mean R: -0.99 | Std of R: 1.042
+Success percentage: 0.46 
+
+currentposition 4689792testing length [5, 10]
+Perfromed 50 tests:
+Mean number of steps: 21.840
+Mean R: -0.40 | Std of R: 1.060
+Success percentage: 0.5 
+
+currentposition 4689792testing length [15, 20]
+Perfromed 50 tests:
+Mean number of steps: 31.660
+Mean R: -0.45 | Std of R: 0.994
+Success percentage: 0.54 
+
+currentposition 4689792testing length [90, 100]
+Perfromed 50 tests:
+Mean number of steps: 115.880
+Mean R: -1.51 | Std of R: 1.026
+Success percentage: 0.6 
+
+currentposition 4689792testing length [250, 300]
+Perfromed 50 tests:
+Mean number of steps: 313.420
+Mean R: -4.27 | Std of R: 1.079
+Success percentage: 0.6 
+
+currentposition 4689792testing length [450, 500]
+Perfromed 50 tests:
+Mean number of steps: 535.080
+Mean R: -7.57 | Std of R: 1.091
+Success percentage: 0.52 
+
+currentposition 4893696testing length [40, 50]
+Perfromed 50 tests:
+Mean number of steps: 60.660
+Mean R: -1.04 | Std of R: 1.039
+Success percentage: 0.42 
+
+currentposition 4893696testing length [5, 10]
+Perfromed 50 tests:
+Mean number of steps: 18.640
+Mean R: -0.43 | Std of R: 1.042
+Success percentage: 0.46 
+
+currentposition 4893696testing length [15, 20]
+Perfromed 50 tests:
+Mean number of steps: 32.060
+Mean R: -0.54 | Std of R: 1.024
+Success percentage: 0.48 
+
+currentposition 4893696testing length [90, 100]
+Perfromed 50 tests:
+Mean number of steps: 115.960
+Mean R: -1.50 | Std of R: 1.104
+Success percentage: 0.56 
+
+currentposition 4893696testing length [250, 300]
+Perfromed 50 tests:
+Mean number of steps: 311.960
+Mean R: -4.12 | Std of R: 1.101
+Success percentage: 0.56 
+
+currentposition 4893696testing length [450, 500]
+Perfromed 50 tests:
+Mean number of steps: 526.220
+Mean R: -6.96 | Std of R: 1.115
+Success percentage: 0.52 
+
+currentposition 5097600testing length [40, 50]
+Perfromed 50 tests:
+Mean number of steps: 59.440
+Mean R: -1.08 | Std of R: 0.977
+Success percentage: 0.46 
+
+currentposition 5097600testing length [5, 10]
+Perfromed 50 tests:
+Mean number of steps: 21.860
+Mean R: -0.24 | Std of R: 0.998
+Success percentage: 0.58 
+
+currentposition 5097600testing length [15, 20]
+Perfromed 50 tests:
+Mean number of steps: 29.520
+Mean R: -0.40 | Std of R: 0.971
+Success percentage: 0.58 
+
+currentposition 5097600testing length [90, 100]
+Perfromed 50 tests:
+Mean number of steps: 118.260
+Mean R: -1.94 | Std of R: 1.050
+Success percentage: 0.48 
+
+currentposition 5097600testing length [250, 300]
+Perfromed 50 tests:
+Mean number of steps: 330.900
+Mean R: -5.36 | Std of R: 0.947
+Success percentage: 0.44 
+
+currentposition 5097600testing length [450, 500]
+Perfromed 50 tests:
+Mean number of steps: 560.260
+Mean R: -9.01 | Std of R: 1.263
+Success percentage: 0.38 
+
+currentposition 5301504testing length [40, 50]
+Perfromed 50 tests:
+Mean number of steps: 60.880
+Mean R: -1.02 | Std of R: 1.000
+Success percentage: 0.54 
+
+currentposition 5301504testing length [5, 10]
+Perfromed 50 tests:
+Mean number of steps: 22.860
+Mean R: -0.68 | Std of R: 0.954
+Success percentage: 0.4 
+
+currentposition 5301504testing length [15, 20]
+Perfromed 50 tests:
+Mean number of steps: 30.260
+Mean R: -0.51 | Std of R: 1.050
+Success percentage: 0.56 
+
+currentposition 5301504testing length [90, 100]
+Perfromed 50 tests:
+Mean number of steps: 124.380
+Mean R: -2.05 | Std of R: 1.015
+Success percentage: 0.58 
+
+currentposition 5301504testing length [250, 300]
+Perfromed 50 tests:
+Mean number of steps: 332.760
+Mean R: -5.68 | Std of R: 1.139
+Success percentage: 0.42 
+
+currentposition 5301504testing length [450, 500]
+Perfromed 50 tests:
+Mean number of steps: 571.060
+Mean R: -9.53 | Std of R: 1.289
+Success percentage: 0.4 
+
+currentposition 5505408testing length [40, 50]
+Perfromed 50 tests:
+Mean number of steps: 65.680
+Mean R: -1.02 | Std of R: 0.997
+Success percentage: 0.58 
+
+currentposition 5505408testing length [5, 10]
+Perfromed 50 tests:
+Mean number of steps: 21.300
+Mean R: -0.46 | Std of R: 0.961
+Success percentage: 0.48 
+
+currentposition 5505408testing length [15, 20]
+Perfromed 50 tests:
+Mean number of steps: 31.220
+Mean R: -0.60 | Std of R: 1.017
+Success percentage: 0.5 
+
+currentposition 5505408testing length [90, 100]
+Perfromed 50 tests:
+Mean number of steps: 120.060
+Mean R: -1.85 | Std of R: 1.024
+Success percentage: 0.54 
+
+currentposition 5505408testing length [250, 300]
+Perfromed 50 tests:
+Mean number of steps: 325.060
+Mean R: -4.58 | Std of R: 1.031
+Success percentage: 0.6 
+
+currentposition 5505408testing length [450, 500]
+Perfromed 50 tests:
+Mean number of steps: 553.420
+Mean R: -8.15 | Std of R: 0.966
+Success percentage: 0.56 
+
+currentposition 5709312testing length [40, 50]
+Perfromed 50 tests:
+Mean number of steps: 58.880
+Mean R: -0.83 | Std of R: 0.954
+Success percentage: 0.54 
+
+currentposition 5709312testing length [5, 10]
+Perfromed 50 tests:
+Mean number of steps: 18.320
+Mean R: -0.28 | Std of R: 1.000
+Success percentage: 0.54 
+
+currentposition 5709312testing length [15, 20]
+Perfromed 50 tests:
+Mean number of steps: 28.020
+Mean R: -0.55 | Std of R: 0.949
+Success percentage: 0.48 
+
+currentposition 5709312testing length [90, 100]
+Perfromed 50 tests:
+Mean number of steps: 115.060
+Mean R: -1.64 | Std of R: 0.985
+Success percentage: 0.54 
+
+currentposition 5709312testing length [250, 300]
+Perfromed 50 tests:
+Mean number of steps: 312.500
+Mean R: -4.47 | Std of R: 1.094
+Success percentage: 0.5 
+
+currentposition 5709312testing length [450, 500]
+Perfromed 50 tests:
+Mean number of steps: 534.080
+Mean R: -7.55 | Std of R: 1.057
+Success percentage: 0.5 
+
+currentposition 5913216testing length [40, 50]
+Perfromed 50 tests:
+Mean number of steps: 58.060
+Mean R: -0.81 | Std of R: 1.013
+Success percentage: 0.54 
+
+currentposition 5913216testing length [5, 10]
+Perfromed 50 tests:
+Mean number of steps: 16.780
+Mean R: -0.33 | Std of R: 1.011
+Success percentage: 0.48 
+
+currentposition 5913216testing length [15, 20]
+Perfromed 50 tests:
+Mean number of steps: 27.520
+Mean R: -0.57 | Std of R: 1.034
+Success percentage: 0.44 
+
+currentposition 5913216testing length [90, 100]
+Perfromed 50 tests:
+Mean number of steps: 111.240
+Mean R: -1.69 | Std of R: 0.997
+Success percentage: 0.44 
+
+currentposition 5913216testing length [250, 300]
+Perfromed 50 tests:
+Mean number of steps: 308.560
+Mean R: -4.01 | Std of R: 0.994
+Success percentage: 0.62 
+
+currentposition 5913216testing length [450, 500]
+Perfromed 50 tests:
+Mean number of steps: 527.440
+Mean R: -7.28 | Std of R: 1.089
+Success percentage: 0.46 
+
+currentposition 6117120testing length [40, 50]
+Perfromed 50 tests:
+Mean number of steps: 60.960
+Mean R: -0.86 | Std of R: 1.007
+Success percentage: 0.58 
+
+currentposition 6117120testing length [5, 10]
+Perfromed 50 tests:
+Mean number of steps: 21.100
+Mean R: -0.39 | Std of R: 1.016
+Success percentage: 0.52 
+
+currentposition 6117120testing length [15, 20]
+Perfromed 50 tests:
+Mean number of steps: 29.040
+Mean R: -0.43 | Std of R: 1.009
+Success percentage: 0.56 
+
+currentposition 6117120testing length [90, 100]
+Perfromed 50 tests:
+Mean number of steps: 117.400
+Mean R: -1.87 | Std of R: 1.031
+Success percentage: 0.48 
+
+currentposition 6117120testing length [250, 300]
+Perfromed 50 tests:
+Mean number of steps: 316.540
+Mean R: -4.42 | Std of R: 1.096
+Success percentage: 0.58 
+
+currentposition 6117120testing length [450, 500]
+Perfromed 50 tests:
+Mean number of steps: 538.260
+Mean R: -7.69 | Std of R: 1.151
+Success percentage: 0.52 
+
+currentposition 6321024testing length [40, 50]
+Perfromed 50 tests:
+Mean number of steps: 59.060
+Mean R: -0.72 | Std of R: 0.983
+Success percentage: 0.56 
+
+currentposition 6321024testing length [5, 10]
+Perfromed 50 tests:
+Mean number of steps: 16.860
+Mean R: -0.16 | Std of R: 1.007
+Success percentage: 0.56 
+
+currentposition 6321024testing length [15, 20]
+Perfromed 50 tests:
+Mean number of steps: 27.640
+Mean R: -0.45 | Std of R: 1.014
+Success percentage: 0.48 
+
+currentposition 6321024testing length [90, 100]
+Perfromed 50 tests:
+Mean number of steps: 112.560
+Mean R: -1.62 | Std of R: 1.019
+Success percentage: 0.44 
+
+currentposition 6321024testing length [250, 300]
+Perfromed 50 tests:
+Mean number of steps: 306.100
+Mean R: -3.81 | Std of R: 1.092
+Success percentage: 0.56 
+
+currentposition 6321024testing length [450, 500]
+Perfromed 50 tests:
+Mean number of steps: 516.300
+Mean R: -6.41 | Std of R: 1.006
+Success percentage: 0.6 
+
+currentposition 6524928testing length [40, 50]
+Perfromed 50 tests:
+Mean number of steps: 60.160
+Mean R: -0.87 | Std of R: 0.950
+Success percentage: 0.58 
+
+currentposition 6524928testing length [5, 10]
+Perfromed 50 tests:
+Mean number of steps: 17.160
+Mean R: -0.31 | Std of R: 1.001
+Success percentage: 0.54 
+
+currentposition 6524928testing length [15, 20]
+Perfromed 50 tests:
+Mean number of steps: 27.000
+Mean R: -0.54 | Std of R: 1.031
+Success percentage: 0.48 
+
+currentposition 6524928testing length [90, 100]
+Perfromed 50 tests:
+Mean number of steps: 114.260
+Mean R: -1.79 | Std of R: 1.058
+Success percentage: 0.48 
+
+currentposition 6524928testing length [250, 300]
+Perfromed 50 tests:
+Mean number of steps: 317.060
+Mean R: -4.52 | Std of R: 1.046
+Success percentage: 0.56 
+
+currentposition 6524928testing length [450, 500]
+Perfromed 50 tests:
+Mean number of steps: 537.780
+Mean R: -7.65 | Std of R: 1.091
+Success percentage: 0.5 
+
+currentposition 6728832testing length [40, 50]
+Perfromed 50 tests:
+Mean number of steps: 58.880
+Mean R: -0.69 | Std of R: 1.015
+Success percentage: 0.62 
+
+currentposition 6728832testing length [5, 10]
+Perfromed 50 tests:
+Mean number of steps: 19.440
+Mean R: -0.29 | Std of R: 0.989
+Success percentage: 0.54 
+
+currentposition 6728832testing length [15, 20]
+Perfromed 50 tests:
+Mean number of steps: 28.380
+Mean R: -0.43 | Std of R: 0.997
+Success percentage: 0.54 
+
+currentposition 6728832testing length [90, 100]
+Perfromed 50 tests:
+Mean number of steps: 113.560
+Mean R: -1.69 | Std of R: 0.990
+Success percentage: 0.48 
+
+currentposition 6728832testing length [250, 300]
+Perfromed 50 tests:
+Mean number of steps: 307.080
+Mean R: -4.30 | Std of R: 1.060
+Success percentage: 0.48 
+
+currentposition 6728832testing length [450, 500]
+Perfromed 50 tests:
+Mean number of steps: 530.380
+Mean R: -7.15 | Std of R: 1.128
+Success percentage: 0.58 
+
+currentposition 6932736testing length [40, 50]
+Perfromed 50 tests:
+Mean number of steps: 61.960
+Mean R: -1.19 | Std of R: 1.006
+Success percentage: 0.44 
+
+currentposition 6932736testing length [5, 10]
+Perfromed 50 tests:
+Mean number of steps: 18.420
+Mean R: -0.24 | Std of R: 0.997
+Success percentage: 0.58 
+
+currentposition 6932736testing length [15, 20]
+Perfromed 50 tests:
+Mean number of steps: 28.660
+Mean R: -0.42 | Std of R: 0.985
+Success percentage: 0.58 
+
+currentposition 6932736testing length [90, 100]
+Perfromed 50 tests:
+Mean number of steps: 119.640
+Mean R: -1.82 | Std of R: 1.051
+Success percentage: 0.58 
+
+currentposition 6932736testing length [250, 300]
+Perfromed 50 tests:
+Mean number of steps: 328.200
+Mean R: -5.31 | Std of R: 1.132
+Success percentage: 0.46 
+
+currentposition 6932736testing length [450, 500]
+Perfromed 50 tests:
+Mean number of steps: 561.180
+Mean R: -8.67 | Std of R: 1.128
+Success percentage: 0.54 
+
+currentposition 7136640testing length [40, 50]
+Perfromed 50 tests:
+Mean number of steps: 59.900
+Mean R: -1.02 | Std of R: 1.020
+Success percentage: 0.48 
+
+currentposition 7136640testing length [5, 10]
+Perfromed 50 tests:
+Mean number of steps: 16.060
+Mean R: -0.38 | Std of R: 1.043
+Success percentage: 0.46 
+
+currentposition 7136640testing length [15, 20]
+Perfromed 50 tests:
+Mean number of steps: 26.900
+Mean R: -0.36 | Std of R: 1.007
+Success percentage: 0.56 
+
+currentposition 7136640testing length [90, 100]
+Perfromed 50 tests:
+Mean number of steps: 116.260
+Mean R: -1.67 | Std of R: 0.986
+Success percentage: 0.56 
+
+currentposition 7136640testing length [250, 300]
+Perfromed 50 tests:
+Mean number of steps: 318.740
+Mean R: -4.83 | Std of R: 1.127
+Success percentage: 0.48 
+
+currentposition 7136640testing length [450, 500]
+Perfromed 50 tests:
+Mean number of steps: 546.340
+Mean R: -8.15 | Std of R: 1.137
+Success percentage: 0.52 
+
+currentposition 7340544testing length [40, 50]
+Perfromed 50 tests:
+Mean number of steps: 61.740
+Mean R: -0.96 | Std of R: 1.024
+Success percentage: 0.54 
+
+currentposition 7340544testing length [5, 10]
+Perfromed 50 tests:
+Mean number of steps: 16.560
+Mean R: -0.35 | Std of R: 1.060
+Success percentage: 0.5 
+
+currentposition 7340544testing length [15, 20]
+Perfromed 50 tests:
+Mean number of steps: 27.720
+Mean R: -0.54 | Std of R: 1.051
+Success percentage: 0.48 
+
+currentposition 7340544testing length [90, 100]
+Perfromed 50 tests:
+Mean number of steps: 118.040
+Mean R: -1.92 | Std of R: 1.054
+Success percentage: 0.46 
+
+currentposition 7340544testing length [250, 300]
+Perfromed 50 tests:
+Mean number of steps: 319.780
+Mean R: -4.94 | Std of R: 1.068
+Success percentage: 0.44 
+
+currentposition 7340544testing length [450, 500]
+Perfromed 50 tests:
+Mean number of steps: 550.140
+Mean R: -8.25 | Std of R: 1.212
+Success percentage: 0.52 
+
+currentposition 7544448testing length [40, 50]
+Perfromed 50 tests:
+Mean number of steps: 61.480
+Mean R: -0.78 | Std of R: 0.993
+Success percentage: 0.64 
+
+currentposition 7544448testing length [5, 10]
+Perfromed 50 tests:
+Mean number of steps: 17.180
+Mean R: -0.27 | Std of R: 1.024
+Success percentage: 0.56 
+
+currentposition 7544448testing length [15, 20]
+Perfromed 50 tests:
+Mean number of steps: 27.760
+Mean R: -0.83 | Std of R: 1.029
+Success percentage: 0.36 
+
+currentposition 7544448testing length [90, 100]
+Perfromed 50 tests:
+Mean number of steps: 116.100
+Mean R: -1.78 | Std of R: 1.037
+Success percentage: 0.5 
+
+currentposition 7544448testing length [250, 300]
+Perfromed 50 tests:
+Mean number of steps: 314.640
+Mean R: -4.51 | Std of R: 1.048
+Success percentage: 0.5 
+
+currentposition 7544448testing length [450, 500]
+Perfromed 50 tests:
+Mean number of steps: 537.500
+Mean R: -7.71 | Std of R: 0.997
+Success percentage: 0.42 
+
+currentposition 7748352testing length [40, 50]
+Perfromed 50 tests:
+Mean number of steps: 63.120
+Mean R: -1.12 | Std of R: 1.037
+Success percentage: 0.52 
+
+currentposition 7748352testing length [5, 10]
+Perfromed 50 tests:
+Mean number of steps: 16.500
+Mean R: -0.20 | Std of R: 1.009
+Success percentage: 0.58 
+
+currentposition 7748352testing length [15, 20]
+Perfromed 50 tests:
+Mean number of steps: 29.100
+Mean R: -0.56 | Std of R: 1.062
+Success percentage: 0.52 
+
+currentposition 7748352testing length [90, 100]
+Perfromed 50 tests:
+Mean number of steps: 123.940
+Mean R: -1.73 | Std of R: 1.022
+Success percentage: 0.66 
+
+currentposition 7748352testing length [250, 300]
+Perfromed 50 tests:
+Mean number of steps: 332.340
+Mean R: -5.09 | Std of R: 1.102
+Success percentage: 0.56 
+
+currentposition 7748352testing length [450, 500]
+Perfromed 50 tests:
+Mean number of steps: 558.680
+Mean R: -8.61 | Std of R: 1.126
+Success percentage: 0.5 
+
+currentposition 7952256testing length [40, 50]
+Perfromed 50 tests:
+Mean number of steps: 63.880
+Mean R: -1.07 | Std of R: 1.125
+Success percentage: 0.54 
+
+currentposition 7952256testing length [5, 10]
+Perfromed 50 tests:
+Mean number of steps: 15.240
+Mean R: -0.23 | Std of R: 1.029
+Success percentage: 0.54 
+
+currentposition 7952256testing length [15, 20]
+Perfromed 50 tests:
+Mean number of steps: 29.820
+Mean R: -0.75 | Std of R: 1.007
+Success percentage: 0.42 
+
+currentposition 7952256testing length [90, 100]
+Perfromed 50 tests:
+Mean number of steps: 124.100
+Mean R: -2.02 | Std of R: 1.088
+Success percentage: 0.52 
+
+currentposition 7952256testing length [250, 300]
+Perfromed 50 tests:
+Mean number of steps: 333.700
+Mean R: -5.53 | Std of R: 1.126
+Success percentage: 0.36 
+
+currentposition 7952256testing length [450, 500]
+Perfromed 50 tests:
+Mean number of steps: 564.620
+Mean R: -8.85 | Std of R: 1.203
+Success percentage: 0.48 
+
+currentposition 8156160testing length [40, 50]
+Perfromed 50 tests:
+Mean number of steps: 59.880
+Mean R: -0.97 | Std of R: 1.101
+Success percentage: 0.52 
+
+currentposition 8156160testing length [5, 10]
+Perfromed 50 tests:
+Mean number of steps: 15.220
+Mean R: -0.25 | Std of R: 1.070
+Success percentage: 0.52 
+
+currentposition 8156160testing length [15, 20]
+Perfromed 50 tests:
+Mean number of steps: 27.880
+Mean R: -0.27 | Std of R: 1.028
+Success percentage: 0.62 
+
+currentposition 8156160testing length [90, 100]
+Perfromed 50 tests:
+Mean number of steps: 117.800
+Mean R: -1.73 | Std of R: 1.113
+Success percentage: 0.54 
+
+currentposition 8156160testing length [250, 300]
+Perfromed 50 tests:
+Mean number of steps: 313.100
+Mean R: -4.31 | Std of R: 1.175
+Success percentage: 0.52 
+
+currentposition 8156160testing length [450, 500]
+Perfromed 50 tests:
+Mean number of steps: 532.480
+Mean R: -7.10 | Std of R: 1.207
+Success percentage: 0.56 
+
+currentposition 8360064testing length [40, 50]
+Perfromed 50 tests:
+Mean number of steps: 57.280
+Mean R: -0.68 | Std of R: 1.035
+Success percentage: 0.6 
+
+currentposition 8360064testing length [5, 10]
+Perfromed 50 tests:
+Mean number of steps: 14.860
+Mean R: -0.17 | Std of R: 1.005
+Success percentage: 0.54 
+
+currentposition 8360064testing length [15, 20]
+Perfromed 50 tests:
+Mean number of steps: 24.840
+Mean R: -0.22 | Std of R: 0.997
+Success percentage: 0.58 
+
+currentposition 8360064testing length [90, 100]
+Perfromed 50 tests:
+Mean number of steps: 113.080
+Mean R: -1.57 | Std of R: 1.055
+Success percentage: 0.56 
+
+currentposition 8360064testing length [250, 300]
+Perfromed 50 tests:
+Mean number of steps: 314.640
+Mean R: -4.50 | Std of R: 1.282
+Success percentage: 0.44 
+
+currentposition 8360064testing length [450, 500]
+Perfromed 50 tests:
+Mean number of steps: 521.440
+Mean R: -6.87 | Std of R: 1.169
+Success percentage: 0.56 
+
+currentposition 8563968testing length [40, 50]
+Perfromed 50 tests:
+Mean number of steps: 56.560
+Mean R: -0.53 | Std of R: 1.176
+Success percentage: 0.66 
+
+currentposition 8563968testing length [5, 10]
+Perfromed 50 tests:
+Mean number of steps: 16.460
+Mean R: -0.03 | Std of R: 1.054
+Success percentage: 0.64 
+
+currentposition 8563968testing length [15, 20]
+Perfromed 50 tests:
+Mean number of steps: 26.140
+Mean R: -0.53 | Std of R: 1.104
+Success percentage: 0.46 
+
+currentposition 8563968testing length [90, 100]
+Perfromed 50 tests:
+Mean number of steps: 115.060
+Mean R: -1.78 | Std of R: 1.368
+Success percentage: 0.5 
+
+currentposition 8563968testing length [250, 300]
+Perfromed 50 tests:
+Mean number of steps: 317.200
+Mean R: -4.76 | Std of R: 1.770
+Success percentage: 0.46 
+
+currentposition 8563968testing length [450, 500]
+Perfromed 50 tests:
+Mean number of steps: 531.380
+Mean R: -7.32 | Std of R: 1.997
+Success percentage: 0.5 
+
+currentposition 8767872testing length [40, 50]
+Perfromed 50 tests:
+Mean number of steps: 56.180
+Mean R: -0.95 | Std of R: 1.098
+Success percentage: 0.44 
+
+currentposition 8767872testing length [5, 10]
+Perfromed 50 tests:
+Mean number of steps: 15.720
+Mean R: -0.72 | Std of R: 1.037
+Success percentage: 0.3 
+
+currentposition 8767872testing length [15, 20]
+Perfromed 50 tests:
+Mean number of steps: 25.300
+Mean R: -0.73 | Std of R: 1.033
+Success percentage: 0.34 
+
+currentposition 8767872testing length [90, 100]
+Perfromed 50 tests:
+Mean number of steps: 112.540
+Mean R: -1.91 | Std of R: 1.153
+Success percentage: 0.36 
+
+currentposition 8767872testing length [250, 300]
+Perfromed 50 tests:
+Mean number of steps: 310.380
+Mean R: -4.11 | Std of R: 1.398
+Success percentage: 0.54 
+
+currentposition 8767872testing length [450, 500]
+Perfromed 50 tests:
+Mean number of steps: 519.240
+Mean R: -6.46 | Std of R: 1.493
+Success percentage: 0.6 
+
+currentposition 8971776testing length [40, 50]
+Perfromed 50 tests:
+Mean number of steps: 57.280
+Mean R: -1.07 | Std of R: 1.114
+Success percentage: 0.42 
+
+currentposition 8971776testing length [5, 10]
+Perfromed 50 tests:
+Mean number of steps: 18.260
+Mean R: -0.45 | Std of R: 1.220
+Success percentage: 0.48 
+
+currentposition 8971776testing length [15, 20]
+Perfromed 50 tests:
+Mean number of steps: 25.780
+Mean R: -0.30 | Std of R: 1.076
+Success percentage: 0.56 
+
+currentposition 8971776testing length [90, 100]
+Perfromed 50 tests:
+Mean number of steps: 111.920
+Mean R: -1.49 | Std of R: 1.154
+Success percentage: 0.56 
+
+currentposition 8971776testing length [250, 300]
+Perfromed 50 tests:
+Mean number of steps: 313.140
+Mean R: -4.19 | Std of R: 1.422
+Success percentage: 0.58 
+
+currentposition 8971776testing length [450, 500]
+Perfromed 50 tests:
+Mean number of steps: 531.760
+Mean R: -7.27 | Std of R: 1.656
+Success percentage: 0.5 
+
+currentposition 9175680testing length [40, 50]
+Perfromed 50 tests:
+Mean number of steps: 59.900
+Mean R: -1.09 | Std of R: 1.068
+Success percentage: 0.44 
+
+currentposition 9175680testing length [5, 10]
+Perfromed 50 tests:
+Mean number of steps: 15.440
+Mean R: -0.16 | Std of R: 1.103
+Success percentage: 0.56 
+
+currentposition 9175680testing length [15, 20]
+Perfromed 50 tests:
+Mean number of steps: 26.280
+Mean R: -0.36 | Std of R: 1.080
+Success percentage: 0.54 
+
+currentposition 9175680testing length [90, 100]
+Perfromed 50 tests:
+Mean number of steps: 114.340
+Mean R: -1.87 | Std of R: 1.141
+Success percentage: 0.42 
+
+currentposition 9175680testing length [250, 300]
+Perfromed 50 tests:
+Mean number of steps: 311.620
+Mean R: -4.39 | Std of R: 1.318
+Success percentage: 0.48 
+
+currentposition 9175680testing length [450, 500]
+Perfromed 50 tests:
+Mean number of steps: 526.280
+Mean R: -7.08 | Std of R: 1.432
+Success percentage: 0.52 
+
+currentposition 9379584testing length [40, 50]
+Perfromed 50 tests:
+Mean number of steps: 59.140
+Mean R: -0.91 | Std of R: 1.153
+Success percentage: 0.54 
+
+currentposition 9379584testing length [5, 10]
+Perfromed 50 tests:
+Mean number of steps: 15.200
+Mean R: -0.10 | Std of R: 1.024
+Success percentage: 0.58 
+
+currentposition 9379584testing length [15, 20]
+Perfromed 50 tests:
+Mean number of steps: 27.940
+Mean R: -0.53 | Std of R: 1.086
+Success percentage: 0.48 
+
+currentposition 9379584testing length [90, 100]
+Perfromed 50 tests:
+Mean number of steps: 115.120
+Mean R: -1.63 | Std of R: 1.104
+Success percentage: 0.56 
+
+currentposition 9379584testing length [250, 300]
+Perfromed 50 tests:
+Mean number of steps: 321.080
+Mean R: -4.84 | Std of R: 1.382
+Success percentage: 0.5 
+
+currentposition 9379584testing length [450, 500]
+Perfromed 50 tests:
+Mean number of steps: 540.900
+Mean R: -7.87 | Std of R: 1.485
+Success percentage: 0.48 
+
+currentposition 9583488testing length [40, 50]
+Perfromed 50 tests:
+Mean number of steps: 58.040
+Mean R: -0.93 | Std of R: 1.138
+Success percentage: 0.5 
+
+currentposition 9583488testing length [5, 10]
+Perfromed 50 tests:
+Mean number of steps: 17.680
+Mean R: -0.34 | Std of R: 1.163
+Success percentage: 0.54 
+
+currentposition 9583488testing length [15, 20]
+Perfromed 50 tests:
+Mean number of steps: 26.740
+Mean R: -0.48 | Std of R: 1.088
+Success percentage: 0.5 
+
+currentposition 9583488testing length [90, 100]
+Perfromed 50 tests:
+Mean number of steps: 112.600
+Mean R: -1.54 | Std of R: 1.100
+Success percentage: 0.56 
+
+currentposition 9583488testing length [250, 300]
+Perfromed 50 tests:
+Mean number of steps: 311.120
+Mean R: -4.37 | Std of R: 1.269
+Success percentage: 0.54 
+
+currentposition 9583488testing length [450, 500]
+Perfromed 50 tests:
+Mean number of steps: 532.960
+Mean R: -7.30 | Std of R: 1.338
+Success percentage: 0.54 
+
+currentposition 9787392testing length [40, 50]
+Perfromed 50 tests:
+Mean number of steps: 62.020
+Mean R: -0.98 | Std of R: 1.174
+Success percentage: 0.54 
+
+currentposition 9787392testing length [5, 10]
+Perfromed 50 tests:
+Mean number of steps: 20.720
+Mean R: -0.36 | Std of R: 1.146
+Success percentage: 0.56 
+
+currentposition 9787392testing length [15, 20]
+Perfromed 50 tests:
+Mean number of steps: 27.860
+Mean R: -0.37 | Std of R: 1.094
+Success percentage: 0.56 
+
+currentposition 9787392testing length [90, 100]
+Perfromed 50 tests:
+Mean number of steps: 118.080
+Mean R: -1.94 | Std of R: 1.175
+Success percentage: 0.46 
+
+currentposition 9787392testing length [250, 300]
+Perfromed 50 tests:
+Mean number of steps: 317.760
+Mean R: -4.31 | Std of R: 1.297
+Success percentage: 0.64 
+
+currentposition 9787392testing length [450, 500]
+Perfromed 50 tests:
+Mean number of steps: 539.860
+Mean R: -7.53 | Std of R: 1.436
+Success percentage: 0.52 
+
+currentposition 9991296testing length [40, 50]
+Perfromed 50 tests:
+Mean number of steps: 60.800
+Mean R: -0.62 | Std of R: 0.957
+Success percentage: 0.62 
+
+currentposition 9991296testing length [5, 10]
+Perfromed 50 tests:
+Mean number of steps: 18.980
+Mean R: -0.61 | Std of R: 1.017
+Success percentage: 0.42 
+
+currentposition 9991296testing length [15, 20]
+Perfromed 50 tests:
+Mean number of steps: 31.160
+Mean R: -0.58 | Std of R: 0.987
+Success percentage: 0.46 
+
+currentposition 9991296testing length [90, 100]
+Perfromed 50 tests:
+Mean number of steps: 114.400
+Mean R: -1.21 | Std of R: 0.977
+Success percentage: 0.66 
+
+currentposition 9991296testing length [250, 300]
+Perfromed 50 tests:
+Mean number of steps: 305.100
+Mean R: -3.99 | Std of R: 1.050
+Success percentage: 0.42 
+
+currentposition 9991296testing length [450, 500]
+Perfromed 50 tests:
+Mean number of steps: 512.080
+Mean R: -6.62 | Std of R: 0.964
+Success percentage: 0.36 
+
+currentposition 10195200testing length [40, 50]
+Perfromed 50 tests:
+Mean number of steps: 61.480
+Mean R: -0.82 | Std of R: 1.027
+Success percentage: 0.52 
+
+currentposition 10195200testing length [5, 10]
+Perfromed 50 tests:
+Mean number of steps: 19.160
+Mean R: -0.30 | Std of R: 1.011
+Success percentage: 0.58 
+
+currentposition 10195200testing length [15, 20]
+Perfromed 50 tests:
+Mean number of steps: 31.280
+Mean R: -0.39 | Std of R: 1.004
+Success percentage: 0.56 
+
+currentposition 10195200testing length [90, 100]
+Perfromed 50 tests:
+Mean number of steps: 114.480
+Mean R: -1.54 | Std of R: 0.968
+Success percentage: 0.5 
+
+currentposition 10195200testing length [250, 300]
+Perfromed 50 tests:
+Mean number of steps: 303.260
+Mean R: -4.10 | Std of R: 1.035
+Success percentage: 0.38 
+
+currentposition 10195200testing length [450, 500]
+Perfromed 50 tests:
+Mean number of steps: 519.080
+Mean R: -6.41 | Std of R: 1.089
+Success percentage: 0.56 
+
