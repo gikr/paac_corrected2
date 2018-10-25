@@ -339,9 +339,7 @@ class PAACLearner_9(object):
             str_result = str()
             f = open('testing_result_[40,50]_9.txt', 'a')
             str_result += 'currentposition {}'.format(self.global_step)
-            for i in range(len(lines)):
-                str_result += lines[i]
-                str_result += '\n'
+            str_result += '{}, {}, {}'.format(self.global_step, len_int_p, final_res)
             str_result += '\n'
             f.write(str_result)
             f.close()
