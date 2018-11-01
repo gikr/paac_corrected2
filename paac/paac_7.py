@@ -230,7 +230,7 @@ class PAACLearner_7(object):
                     stats_5 = np.asarray(self.evaluate(self.checking_length[5], verbose=True))
                     #stats = np.asarray(self.evaluate(self.checking_length[4], verbose=True))
                     #stats = np.asarray(self.evaluate(self.checking_length[0], verbose=True))
-                    #stats = np.asarray(self.evaluate(self.checking_length, verbose=True))
+                    stats = np.asarray(self.evaluate_2(self.starting_length[0], verbose=True))
                     #print('stats', stats)
                     if stats[-1] >= 0.98:
                         self._save_progress(self.checkpoint_dir, summaries=training_stats, is_best=True)
@@ -345,6 +345,19 @@ class PAACLearner_7(object):
 
         return stats
 
+    def evaluate_2(self, len_int_p,  verbose=True):
+        num_steps, rewards, final_res = self.eval_func(len_int_p, *self.eval_args, **self.eval_kwargs)
+        print(num_steps, rewards, final_res, 'num_steps, rewards, final_res')
+        #print(len_int_p, "int len evaluate")
+        mean_steps = np.mean(num_steps)
+        min_r, max_r = np.min(rewards), np.max(rewards)
+        mean_r, std_r = np.mean(rewards), np.std(rewards)
+
+        stats = TrainingStats(mean_r, max_r, min_r, std_r, mean_steps, final_res)
+   
+
+        return stats
+      
     def set_eval_function(self, eval_func, *args, **kwargs):
         self.eval_func = eval_func
         self.eval_args = args
