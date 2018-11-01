@@ -332,7 +332,8 @@ class PAACLearner_7(object):
                 'Perfromed {0} tests:'.format(len(num_steps)),
                 'Mean number of steps: {0:.3f}'.format(mean_steps),
                 'Mean R: {0:.2f} | Std of R: {1:.3f}'.format(mean_r, std_r),
-                'Success percentage: {} '.format(final_res)]
+                'Success percentage: {} '.format(final_res),
+                'Training length: {} '.format(self.starting_length[0])]
 
             logging.info(red('\n'.join(lines)))
             str_result = str()
