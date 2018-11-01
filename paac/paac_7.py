@@ -69,11 +69,11 @@ class PAACLearner_7(object):
         self.critic_coef = self.args['critic_coef'] #0.25
         self.eval_func = None
 
-        self.curr_learning = False
+        self.curr_learning = True
         self.rewards_deque = deque(maxlen=64)
         self.starting_length = [[5,10],[5,10]] #1. 5-10;  2. 15-20; 3.40-50; 4.90-100
         #self.checking_length = [5,10]
-        self.checking_length = [[15,20], [40,50], [90,100], [250,300], [450,500]]
+        self.checking_length = [[5,10], [15,20], [40,50], [90,100], [250,300], [450,500]]
         self.flag_enlarge = False
 
         if self.args['clip_norm_type'] == 'global':
@@ -100,17 +100,17 @@ class PAACLearner_7(object):
         finishing_rewards = []
 
         if self.eval_func is not None:
-            stats = np.asarray(self.evaluate(self.starting_length[0], verbose=True))
             stats_0 = np.asarray(self.evaluate(self.checking_length[0], verbose=True))
             stats_1 = np.asarray(self.evaluate(self.checking_length[1], verbose=True))
             stats_2 = np.asarray(self.evaluate(self.checking_length[2], verbose=True))
             stats_3 = np.asarray(self.evaluate(self.checking_length[3], verbose=True))
             stats_4 = np.asarray(self.evaluate(self.checking_length[4], verbose=True))
+            stats_5 = np.asarray(self.evaluate(self.checking_length[5], verbose=True))
             #stats = tuple((stats_1 + stats_2 + stats_3 + stats_4)/4)
             #stats = np.asarray(self.evaluate(self.checking_length[0], verbose=True))
             #stats = np.asarray(self.evaluate(self.checking_length, verbose=True))
-            print('stats',stats)
-            training_stats.append((self.global_step, stats))
+            #print('stats',stats)
+            #training_stats.append((self.global_step, stats))
 
         #num_actions = self.args['num_actions']
         num_emulators = self.args['num_envs']
@@ -222,13 +222,12 @@ class PAACLearner_7(object):
 
             if counter % (self.eval_every // rollout_steps) == 0:
                 if (self.eval_func is not None):
-                    stats = np.asarray(self.evaluate(self.starting_length[0], verbose=True))
                     stats_0 = np.asarray(self.evaluate(self.checking_length[0], verbose=True))
                     stats_1 = np.asarray(self.evaluate(self.checking_length[1], verbose=True))
                     stats_2 = np.asarray(self.evaluate(self.checking_length[2], verbose=True))
                     stats_3 = np.asarray(self.evaluate(self.checking_length[3], verbose=True))
                     stats_4 = np.asarray(self.evaluate(self.checking_length[4], verbose=True))
-
+                    stats_5 = np.asarray(self.evaluate(self.checking_length[5], verbose=True))
                     #stats = np.asarray(self.evaluate(self.checking_length[4], verbose=True))
                     #stats = np.asarray(self.evaluate(self.checking_length[0], verbose=True))
                     #stats = np.asarray(self.evaluate(self.checking_length, verbose=True))
@@ -241,7 +240,7 @@ class PAACLearner_7(object):
                             self.change_length_labyrinth()
                         else:
                             pass
-                    training_stats.append((self.global_step, stats))
+                    #training_stats.append((self.global_step, stats))
 
             if self.global_step - self.last_saving_step >= self.save_every:
                 self._save_progress(self.checkpoint_dir, summaries=training_stats, is_best=True)
@@ -338,7 +337,7 @@ class PAACLearner_7(object):
             logging.info(red('\n'.join(lines)))
             str_result = str()
             f = open('testing_result_[40,50]_7.txt', 'a')
-            str_result += '{}, {}, {}'.format(self.global_step, len_int_p, final_res)
+            str_result += '{}, {}, {}, {}'.format(self.global_step, len_int_p, final_res, self.starting_length[0])
             str_result += '\n'
             f.write(str_result)
             f.close()
@@ -372,10 +371,9 @@ class PAACLearner_7(object):
 
     def change_length_labyrinth(self):
         
-        for i in range(8):
+        for i in range(2):
           self.starting_length[i] = list(np.array(self.starting_length[i]) + [5,5])
-        self.checking_length = np.array(self.checking_length) + [5,5]
-        print(self.checking_length, 'self.checking_length')
+        
         
         self.batch_env.set_difficulty(self.starting_length)
 
